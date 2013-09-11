@@ -1,0 +1,56 @@
+#avail{
+	width: 600px;
+	margin: 10px auto;
+	color: #00489a;
+	font-size: 20px;
+	padding: 10px;
+	border: #007dcd solid;
+	border-radius: 10px;
+	background-image: url(../images/gray_jean.png);
+}
+
+#availForm, #availFeed{
+    margin-left: 50px;
+}
+
+#avail .textBox, #avail .dropList{
+    border-color: #007dcd;
+}
+
+#availCheck{
+    height: 30px;
+    width: 100%;
+    font-size: 14px;
+}
+
+#availFeed{
+    font-size: 16px;
+    line-height: 28px;
+}
+
+#resRoom, #canRoom{
+    height: 30px;
+    width: 44%;
+    font-size: 14px;
+	padding: 0 2%;
+}
+
+tr {
+    height: 40px;
+}
+
+td {
+    padding: 5px 20px;
+}
+
+label{
+    font-size: 16px;
+    color:#009a3e;
+}
+
+h2{
+    font-size: 26px;
+    font-weight: bold;    
+    margin-bottom: 0;
+    margin-top: 0;
+}

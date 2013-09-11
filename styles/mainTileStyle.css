@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+.content table{
+	width:100%;	
+	margin-bottom: 30px;
+}
+
+.tile {
+	font-size: 200%;
+	color: #222;
+	margin:30px 5%;
+	padding: 10px 10px;
+	border-radius: 10px;
+	border-style: solid;
+	text-align: center;
+	border-color: #aaa;
+	border-width: 1px;
+	background-image: url(../images/gray_jean.png);
+}
+
+.tile:hover {		
+	cursor:pointer;	
+        color: #000;
+        box-shadow: 0 0 2px 2px #ccc;
+        -moz-box-shadow: 0 0 2px 2px #ccc;
+        -webkit-box-shadow: 0 0 3px 3px #ccc;	
+}
+
+/*#tile1:hover {
+	color: #170f8b;        
+				
+}
+#tile2:hover {
+	color: #0c800e;		
+}
+#tile3:hover {
+	color: #b41010;	
+}
+#tile4:hover {
+	color: #904c10;	
+}*/
+
+.tileText{
+	font-family: Armata;	
+	display: inline-block;
+	text-align: center;	
+	width: 100%;	
+}
+
+.tileIcon {
+	width: 100%;	
+	display:inline-block;	
+	text-align: center;	
+}
+

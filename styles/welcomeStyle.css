@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+	font-family: 'Hand';
+    src: url('fonts/hand.otf');	
+}
+
+#logout {
+	visibility: hidden;	
+}
+
+#logName {
+	visibility: hidden;	
+}
+
+#normLog{
+	border-radius: 10px;	
+}
+
+.sidebar{
+	width: 0%;	
+}
+
+.content{
+	width: 100%;        
+}
+
+
+#sysLogin {	
+	background:#007dcd;
+	background:-moz-linear-gradient(top,#007dcd 0%,#024b89 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#007dcd),color-stop(100%,#024b89));
+	background:-webkit-linear-gradient(top,#007dcd 0%,#024b89 100%);
+	background:-o-linear-gradient(top,#007dcd 0%,#024b89 100%);
+	background:-ms-linear-gradient(top,#007dcd 0%,#024b89 100%);
+	background:linear-gradient(top,#007dcd 0%,#024b89 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dcd',endColorstr='#024b89',GradientType=0);
+	border:1px solid #00489a;
+	padding:5px 20px;
+	color:#fff;	
+	font-family: Armata;
+	font-size:20px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	
+	float: right;
+	margin-top: 5px;
+	cursor: pointer;        
+}
+
+#sysLogin:hover {	
+	background:-moz-linear-gradient(top,#035c94 0%,#002d53 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#035c94),color-stop(100%,#002d53));
+	background:-webkit-linear-gradient(top,#035c94 0%,#002d53 100%);
+	background:-o-linear-gradient(top,#035c94 0%,#002d53 100%);
+	background:-ms-linear-gradient(top,#035c94 0%,#002d53 100%);
+	background:linear-gradient(top,#035c94 0%,#002d53 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#035c94',endColorstr='#002d53',GradientType=0);
+}
+
+#notice {
+	color: #f00;
+	/*text-align: center;*/
+	font-family: Hand;
+	font-size: 200%;
+	float: left;
+	margin-right: 100%;
+	margin-left: -50%;
+	margin-top: -300px;	
+/*	//overflow: visible;*/
+	clear: both;
+}
+
+#overlay {
+	display: none;
+	z-index: 2;
+	background: #000;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+}
+#specialBox {
+	display: none;
+	position: absolute;
+	z-index: 3;
+	margin: 0 30%;
+	width: 400px; 
+	height: 200px;
+	
+	padding: 10px 20px;
+	text-align: center;
+	font-size: 24px;        
+	
+	background: #7bd384;
+        background-image: url('../images/debut_green.png');
+	color: #030;
+	border-radius: 7px;
+	border: medium solid #000;
+}
+
+#loginForm label{
+    font-family: Armata;
+	color: #000;
+	padding-top: 8px;
+	clear: right;
+	margin: 5px 15px;
+	font-size: 18px;
+}
