@@ -234,19 +234,6 @@
     text-align: left;
 }
 
-#overlay{
-    display: none;
-    /*color: #fff;*/
-    z-index: 2;
-    background: rgba(0,0,0,0.7);    
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    /*text-align: center;*/
-}
-
 #ovBox{    
     position: relative;
     z-index: 3;

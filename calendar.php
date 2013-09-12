@@ -4,40 +4,40 @@ include './scripts/CheckCookie.php';
 include './scripts/MyDB.php';
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>eReserve</title>
-	<link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
-	<!-- InstanceBeginEditable name="Attachments" -->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>eReserve</title>
+        <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
+        <!-- InstanceBeginEditable name="Attachments" -->
         <link href="styles/calendarStyle.css" rel="stylesheet" type="text/css" />
         <link href="styles/navMenu.css" rel="stylesheet" type="text/css" />
         <script src="js/jquery-1.10.2.min.js" ></script>
         <script src="js/common.js" ></script>
         <script src="js/calendar.js"></script>
         <!-- InstanceEndEditable -->
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
-	</head>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
+    </head>
 
-	<body>	
-		<div class="container">
-        
-  			<div class="header">
-  				<div class="logo" id="logo">
-                	<a href="home.php">
-   	  					<img src="images/logo.png" alt="eReserve Logo" name="ereserve_logo" id="ereserve_logo" />
+    <body>	
+        <div class="container">
+
+            <div class="header">
+                <div class="logo" id="logo">
+                    <a href="home.php">
+                        <img src="images/logo.png" alt="eReserve Logo" name="ereserve_logo" id="ereserve_logo" />
                     </a>      
-    			</div>    
-    			<div class="siteName">
-    				<span id="mainTitle">Room Reservation System</span>
-        			<br />
-    	    		<span id="subTitle">University of Moratuwa</span>
-    			</div>
-  			</div>
-  
-  			<div class="titleBar">
-			<!-- InstanceBeginEditable name="PageTitle" -->Check Reservations<!-- InstanceEndEditable -->		
-    			<div id="logName">
-                <!-- InstanceBeginEditable name="UserType" -->
+                </div>    
+                <div class="siteName">
+                    <span id="mainTitle">Room Reservation System</span>
+                    <br />
+                    <span id="subTitle">University of Moratuwa</span>
+                </div>
+            </div>
+
+            <div class="titleBar">
+                <!-- InstanceBeginEditable name="PageTitle" -->Check Reservations<!-- InstanceEndEditable -->		
+                <div id="logName">
+                    <!-- InstanceBeginEditable name="UserType" -->
                     <?php
                     $db = new Database();
                     $dbCon = $db->getConnection();
@@ -59,25 +59,25 @@ include './scripts/MyDB.php';
                     }
                     ?>
                     <!-- InstanceEndEditable -->
-    			</div>    
-  			</div>
-  
-  			<div class="sidebar"> 
-             	<!-- InstanceBeginEditable name="SideBar" -->
+                </div>    
+            </div>
+
+            <div class="sidebar"> 
+                <!-- InstanceBeginEditable name="SideBar" -->
                 <div id="navigation">
                     <ul>
                         <a href="home.php"><li>Home</li></a>
-                        <a href="request.php"><li>Request Reservation</li></a>
+                        <a href="request.php"><li>Request Reservations</li></a>
                         <a href="cancel.php"><li>Cancel Reservation</li></a>
                         <a href="my_history.php"><li>Reservation History</li></a>
                     </ul>
                 </div>
                 <!-- InstanceEndEditable -->
-  			</div>
-  			
-  	
-  			<div class="content">
-				<!-- InstanceBeginEditable name="Content" -->
+            </div>
+
+
+            <div class="content">
+                <!-- InstanceBeginEditable name="Content" -->
                 <div id="roomSelect">
                     <div id="reg2">                        
                         <table cellpadding="0" cellspacing="0">
@@ -132,7 +132,7 @@ include './scripts/MyDB.php';
                     <table id="roomSheetData" cellspacing="0"></table>
                 </div>
 
-                <div id="overlay">
+                <div class="overlay" id="overlay">
                     <div id="ovBox">
                         <div id="dateSelect">
                             <form id="dateSelector" name="dateSelector" >    
@@ -160,16 +160,16 @@ include './scripts/MyDB.php';
                     </div>
                 </div>
                 <!-- InstanceEndEditable --> 	
-  			    
-		    </div> 
-            
-	</div>
-		<!--
-		<div class="footer">    
-  			<marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="8" direction="left">
-  				Copyrights Reserved &nbsp;&nbsp;&nbsp;&nbsp; &copy;2013 Udith Arosha Gunaratna
-    		</marquee>
-		</div>
- 		-->
-	</body>
-<!-- InstanceEnd --></html>
+
+            </div> 
+
+        </div>
+        <!--
+        <div class="footer">    
+                <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="8" direction="left">
+                        Copyrights Reserved &nbsp;&nbsp;&nbsp;&nbsp; &copy;2013 Udith Arosha Gunaratna
+        </marquee>
+        </div>
+        -->
+    </body>
+    <!-- InstanceEnd --></html>

@@ -14,40 +14,40 @@ if (isset($_POST['submitted'])) {
 }
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>eReserve</title>
-	<link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
-	<!-- InstanceBeginEditable name="Attachments" -->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>eReserve</title>
+        <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
+        <!-- InstanceBeginEditable name="Attachments" -->
         <link href="styles/loginStyle.css" rel="stylesheet" type="text/css" />
         <link href="styles/mainTileStyle.css" rel="stylesheet" type="text/css" />
         <script type='text/javascript' src='js/gen_validatorv31.js'></script> 
-	<!-- InstanceEndEditable -->
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
-	</head>
+        <!-- InstanceEndEditable -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
+    </head>
 
-	<body>	
-		<div class="container">
-        
-  			<div class="header">
-  				<div class="logo" id="logo">
-                	<a href="home.php">
-   	  					<img src="images/logo.png" alt="eReserve Logo" name="ereserve_logo" id="ereserve_logo" />
+    <body>	
+        <div class="container">
+
+            <div class="header">
+                <div class="logo" id="logo">
+                    <a href="home.php">
+                        <img src="images/logo.png" alt="eReserve Logo" name="ereserve_logo" id="ereserve_logo" />
                     </a>      
-    			</div>    
-    			<div class="siteName">
-    				<span id="mainTitle">Room Reservation System</span>
-        			<br />
-    	    		<span id="subTitle">University of Moratuwa</span>
-    			</div>
-  			</div>
-  
-  			<div class="titleBar">
-			<!-- InstanceBeginEditable name="PageTitle" -->
+                </div>    
+                <div class="siteName">
+                    <span id="mainTitle">Room Reservation System</span>
+                    <br />
+                    <span id="subTitle">University of Moratuwa</span>
+                </div>
+            </div>
+
+            <div class="titleBar">
+                <!-- InstanceBeginEditable name="PageTitle" -->
                 Welcome
                 <!-- InstanceEndEditable -->		
-    			<div id="logName">
-                <!-- InstanceBeginEditable name="UserType" -->
+                <div id="logName">
+                    <!-- InstanceBeginEditable name="UserType" -->
                     <?php
                     $db = new Database();
                     $dbCon = $db->getConnection();
@@ -56,11 +56,11 @@ if (isset($_POST['submitted'])) {
                     $result = $chc->checkCook("guest");
                     ?>
                     <!-- InstanceEndEditable -->
-    			</div>    
-  			</div>
-  
-  			<div class="sidebar"> 
-             	<!-- InstanceBeginEditable name="SideBar" -->
+                </div>    
+            </div>
+
+            <div class="sidebar"> 
+                <!-- InstanceBeginEditable name="SideBar" -->
                 <a href="calendar.php">
                     <div class="tile" id="tile1">
                         <div class="tileIcon"><img src="images/calendar_icon.png" alt="calendar_icon"/></div>
@@ -69,11 +69,11 @@ if (isset($_POST['submitted'])) {
                     </div>
                 </a>
                 <!-- InstanceEndEditable -->
-  			</div>
-  			
-  	
-  			<div class="content">
-				<!-- InstanceBeginEditable name="Content" -->
+            </div>
+
+
+            <div class="content">
+                <!-- InstanceBeginEditable name="Content" -->
                 <form id="loginForm" method="post" action="login.php">
                     <table>
                         <tr><td><h1>Login</h1></td></tr>
@@ -105,9 +105,9 @@ if (isset($_POST['submitted'])) {
                         </tr>                        
                     </table>  
                     <input type="hidden" name="submitted" value="1"/>
-                    
+
                 </form>  
-				<div class="eResLogo"></div>
+                <div class="eResLogo"></div>
                 <script type='text/javascript'>
                     var frmvalidator = new Validator("loginForm");
                     frmvalidator.EnableOnPageErrorDisplay();
@@ -116,16 +116,16 @@ if (isset($_POST['submitted'])) {
                     frmvalidator.addValidation("passwd", "req", "Please provide your password");
                 </script>
                 <!-- InstanceEndEditable --> 	
-  			    
-		    </div> 
-            
-	</div>
-		<!--
-		<div class="footer">    
-  			<marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="8" direction="left">
-  				Copyrights Reserved &nbsp;&nbsp;&nbsp;&nbsp; &copy;2013 Udith Arosha Gunaratna
-    		</marquee>
-		</div>
- 		-->
-	</body>
-<!-- InstanceEnd --></html>
+
+            </div> 
+
+        </div>
+        <!--
+        <div class="footer">    
+                <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="8" direction="left">
+                        Copyrights Reserved &nbsp;&nbsp;&nbsp;&nbsp; &copy;2013 Udith Arosha Gunaratna
+        </marquee>
+        </div>
+        -->
+    </body>
+    <!-- InstanceEnd --></html>

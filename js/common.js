@@ -124,26 +124,34 @@ function toggleOverlay() {
      * arg 0 = name of boolean variable showing toggle state
      * arg 1 = id of overlay element
      * return = new toggle state
-     */    
+     */
     if (arguments[0]) {
         var overlay = document.getElementById(arguments[1]);
         overlay.style.display = "none";
-        return false;      
+        return false;
     }
     else {
         var overlay = document.getElementById(arguments[1]);
         overlay.style.display = "block";
         document.body.scrollTop = document.documentElement.scrollTop = 0;
-        return true;        
+        return true;
     }
 }
 
-function sendHttpReq(elementId, params, script) {
+function sendHttpReq() {
     /*
      * arg 0 = id of element to show results
      * arg 1 = array of parameters to the php script
      * arg 2 = name of the php script
-     */    
+     */
+    var elementId = arguments[0];
+    var params = arguments[1];
+    var script = arguments[2];
+    var retFunction;
+    if (arguments[3]) {
+        retFunction = arguments[3];
+    }
+
     var xhr;
 
     if (window.XMLHttpRequest) {
@@ -156,7 +164,7 @@ function sendHttpReq(elementId, params, script) {
     for (var i = 1; i < params.length; i++) {
         data += "&param_" + (i + 1) + "=" + params[i];
     }
-    
+
     xhr.open("POST", script, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(data);
@@ -166,6 +174,9 @@ function sendHttpReq(elementId, params, script) {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
                 document.getElementById(elementId).innerHTML = xhr.responseText;
+                if (retFunction) {
+                    retFunction();
+                }
             } else {
                 document.getElementById(elementId).innerHTML = "An error occured: Error code " + xhr.status;
             }
@@ -173,5 +184,7 @@ function sendHttpReq(elementId, params, script) {
         else {
             document.getElementById(elementId).innerHTML = "An error occured: Error code " + xhr.readyState;
         }
+
+
     }
 }

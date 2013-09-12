@@ -3,11 +3,12 @@
 class Database {
 
     private $db;
+
     const DB_SERVER = "localhost";
     const DB_USER = "root";
     const DB_PASSWORD = "";
     const DB_NAME = "reservationdb";
-    
+
     function __construct() {
 
         $dsn = 'mysql:dbname=' . Database::DB_NAME . ';host=' . Database::DB_SERVER;
@@ -18,12 +19,11 @@ class Database {
             throw new Exception($ex->getMessage());
         }
     }
-    
-    function getConnection(){
+
+    function getConnection() {
         return $this->db;
     }
+
 }
-
-
 
 ?>

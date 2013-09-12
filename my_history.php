@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
-include './scripts/CheckCookie.php';
-include './scripts/MyDB.php';
+include 'scripts/CheckCookie.php';
+include 'scripts/MyDB.php';
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
     <head>
@@ -9,8 +9,11 @@ include './scripts/MyDB.php';
         <title>eReserve</title>
         <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
         <!-- InstanceBeginEditable name="Attachments" -->
-        <link href="styles/homeStyle.css" rel="stylesheet" type="text/css" />
-        <link href="styles/mainTileStyle.css" rel="stylesheet" type="text/css" />
+        <link href="styles/navMenu.css" rel="stylesheet" type="text/css" />
+        <link href="styles/myHistoryStyle.css" rel="stylesheet" type="text/css" />
+        <script src="js/jquery-1.10.2.min.js" ></script>
+        <script src="js/common.js" ></script>
+        <script src="js/myHistory.js" ></script>
         <!-- InstanceEndEditable -->
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
     </head>
@@ -32,7 +35,7 @@ include './scripts/MyDB.php';
             </div>
 
             <div class="titleBar">
-                <!-- InstanceBeginEditable name="PageTitle" -->Home<!-- InstanceEndEditable -->		
+                <!-- InstanceBeginEditable name="PageTitle" -->Reservation History<!-- InstanceEndEditable -->		
                 <div id="logName">
                     <!-- InstanceBeginEditable name="UserType" -->
                     <?php
@@ -52,9 +55,10 @@ include './scripts/MyDB.php';
                         $type = $result[3];
                         echo ' 
                             	<a href="scripts/Logout.php">
-                                    <input type="submit" name="logout" id="logout" value="logout" class="redBtn"/>
-                		</a>
+                    				<input type="submit" name="logout" id="logout" value="logout" class="redBtn"/>
+                				</a>
                             ';
+
                         echo $first_name . " " . $last_name;
                     }
                     ?>
@@ -63,52 +67,22 @@ include './scripts/MyDB.php';
             </div>
 
             <div class="sidebar"> 
-                <!-- InstanceBeginEditable name="SideBar" --><!-- InstanceEndEditable -->
+                <!-- InstanceBeginEditable name="SideBar" -->
+                <div id="navigation">
+                    <ul>
+                        <a href="home.php"><li>Home</li></a>
+                        <a href="calendar.php"><li>Reservation Calendar</li></a>
+                        <a href="request.php"><li>Request Reservations</li></a>
+                        <a href="cancel.php"><li>Cancel Reservation</li></a>
+                    </ul>
+                </div>
+                <!-- InstanceEndEditable -->
             </div>
 
 
             <div class="content">
                 <!-- InstanceBeginEditable name="Content" -->
-                <table>
-                    <tr>
-                        <td>
-                            <a href="calendar.php">
-                                <div class="tile" id="tile1">
-                                    <div class="tileIcon"><img src="images/calendar_icon.png" alt="calendar_icon"/></div>
-                                    <br/>
-                                    <div class="tileText">Reservation<br/> CALENDAR</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="request.php">
-                                <div class="tile" id="tile2">
-                                    <div class="tileIcon"><img src="images/request_icon.png" alt="request_icon"/></div>
-                                    <br/>
-                                    <div class="tileText">REQUEST<br/>Reservations</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="cancel.php">
-                                <div class="tile" id="tile3">
-                                    <div class="tileIcon"><img src="images/cancel_icon.png" alt="cancel_icon"/></div>
-                                    <br/>
-                                    <div class="tileText">CANCEL<br/>Reservations</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="my_history.php">
-                                <div class="tile" id="tile4">
-                                    <div class="tileIcon"><img src="images/history_icon.png" alt="history_icon"/></div>
-                                    <br/>
-                                    <div class="tileText">Reservation<br/> HISTORY</div>
-                                </div> 
-                            </a>
-                        </td>
-                    </tr>                    
-                </table>
+                <table id="historyTable"></table>
                 <!-- InstanceEndEditable --> 	
 
             </div> 

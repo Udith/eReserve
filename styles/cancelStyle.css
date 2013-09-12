@@ -1,0 +1,105 @@
+#reservations {
+}
+#requests {
+}
+
+h2{
+	margin-left: 20px;
+	margin-bottom: 0px;
+	color: #003366;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 34px;
+}
+
+#confirm {
+	position: relative;
+    z-index: 3;
+    margin: 150px auto 0px auto;
+    width: 300px; 
+    /*min-height: 300px;*/
+    font-family: Armata;
+    background-image: url(../images/gray_jean.png);
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: #000 solid;
+    color: #000;
+}
+
+#ovrHeader{
+	padding: 0px 10px;	
+}
+#confirmBody {
+	padding: 10px 10px;
+}
+
+#yBtn, #nBtn{
+	width: 134px;
+	height: 30px;	
+	font-size: 14px;
+	margin: 10px auto 0 auto; 
+}
+
+.canBtn{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	border-radius:0;		
+}
+
+table{
+    overflow:hidden;
+    border:1px solid #d3d3d3;
+    background:#fefefe;
+    width:90%;
+    margin:0 auto 0;
+    -moz-border-radius:5px; /* FF1+ */
+    -webkit-border-radius:5px; /* Saf3-4 */
+    border-radius:5px;
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+th, td {padding:5px 20px 5px; text-align:center; }
+
+th {text-shadow: 1px 1px 1px #fff; background:#e8eaeb;}
+
+td {border-top:1px solid #e0e0e0; border-right:1px solid #e0e0e0;}
+
+tr.odd-row td {background:#f6f6f6;}
+
+td.first, th.first {text-align:left}
+
+td.last {border-right:none;}
+
+td {
+    background: -moz-linear-gradient(100% 25% 90deg, #fefefe, #f9f9f9);
+    background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f9f9f9), to(#fefefe));    
+}
+
+th {
+    background: -moz-linear-gradient(100% 20% 90deg, #cdcdcd, #bebebe);
+    background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
+}
+
+tr:first-child th.first {
+    -moz-border-radius-topleft:5px;
+    -webkit-border-top-left-radius:5px; /* Saf3-4 */
+}
+
+tr:first-child th.last {
+    -moz-border-radius-topright:5px;
+    -webkit-border-top-right-radius:5px; /* Saf3-4 */
+}
+
+tr:last-child td.first {
+    -moz-border-radius-bottomleft:5px;
+    -webkit-border-bottom-left-radius:5px; /* Saf3-4 */
+}
+
+tr:last-child td.last {
+    -moz-border-radius-bottomright:5px;
+    -webkit-border-bottom-right-radius:5px; /* Saf3-4 */
+}
+   

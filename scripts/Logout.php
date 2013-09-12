@@ -3,7 +3,7 @@
 class Logout {
 
     function removeCookie() {
-        setcookie("ereserve", "", time()-3600, "/");
+        setcookie("ereserve", "", time() - 3600, "/");
         header("Location:../login.php");
     }
 
