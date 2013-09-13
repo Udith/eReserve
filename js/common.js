@@ -1,7 +1,11 @@
+/*
+ * Has JS functions need commonly
+ */
+
 var months = new Array("January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December");
 
-function loadYears() {
+function loadYears() {      //load years
     /*
      * arg 0 = date object
      * arg 1 = id of html dropdownlist to view year
@@ -14,7 +18,7 @@ function loadYears() {
     }
 }
 
-function loadMonths() {
+function loadMonths() {     //load months
     /*
      * arg 0 = date object
      * arg 1 = id of html dropdownlist to view month
@@ -35,7 +39,7 @@ function loadMonths() {
     }
 }
 
-function loadDates() {
+function loadDates() {  //load dates
     /*
      * arg 0 = date object
      * arg 1 = id of html dropdownlist to view date
@@ -73,7 +77,7 @@ function loadDates() {
     }
 }
 
-function yearChanged() {
+function yearChanged() {    //if year value changed, change months accordingly
     /*
      * arg 0 = date object
      * arg 1 = id of html dropdownlist to view date
@@ -84,7 +88,7 @@ function yearChanged() {
     loadDates(arguments[0], arguments[1], arguments[2], arguments[3]);
 }
 
-function monthChanged() {
+function monthChanged() {   //if month value changed, change dates accordingly
     /*
      * arg 0 = date object
      * arg 1 = id of html dropdownlist to view date
@@ -94,7 +98,7 @@ function monthChanged() {
     loadDates(arguments[0], arguments[1], arguments[2], arguments[3]);
 }
 
-function loadFaculties() {
+function loadFaculties() {  //load the list of faculties
     /*
      * arg 0 = id of html dropdownlist to view faculties
      * arg 1 = id of html dropdownlist to view departments
@@ -104,14 +108,17 @@ function loadFaculties() {
     document.getElementById(arguments[1]).disabled = true;
 }
 
-function facultyChanged() {
+function facultyChanged() {     //if faculty value changed, change departments accordingly
     /*
      * arg 0 = id of html dropdownlist to view faculties
      * arg 1 = id of html dropdownlist to view departments
      */
     var fac_name = document.getElementById(arguments[0]).value;
-    if (fac_name == "any")
+    if (fac_name == "any") {
+        var e = document.getElementById(arguments[1]);
+        e.selectedIndex = 0;
         document.getElementById(arguments[1]).disabled = true;
+    }
     else {
         document.getElementById(arguments[1]).disabled = false;
         var params = ["getDepartments", fac_name];
@@ -138,7 +145,7 @@ function toggleOverlay() {
     }
 }
 
-function sendHttpReq() {
+function sendHttpReq() {    //send ajax httprequests to interact with the database
     /*
      * arg 0 = id of element to show results
      * arg 1 = array of parameters to the php script
@@ -184,7 +191,5 @@ function sendHttpReq() {
         else {
             document.getElementById(elementId).innerHTML = "An error occured: Error code " + xhr.readyState;
         }
-
-
     }
 }

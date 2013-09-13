@@ -1,3 +1,7 @@
+/*
+ * Has JS functions need for request page
+ */
+
 var emptyID = false;
 var resRoomID = "";
 var resDate = "";
@@ -37,7 +41,7 @@ $(document).ready(function() {
 
 });
 
-function loadTimeSlots() {
+function loadTimeSlots() {  //load time slots
     /*
      * arg 0 = start time
      * arg 1 = end time
@@ -54,7 +58,7 @@ function loadTimeSlots() {
     loadEndTimeSlot(end, arguments[2], arguments[3]);
 }
 
-function loadEndTimeSlot() {
+function loadEndTimeSlot() {    //load the end timeslots according to selected start timeslot
     /*
      * arg 0 = end time
      * arg 1 = id of html dropdownlist having start slots
@@ -74,7 +78,7 @@ function loadEndTimeSlot() {
     }
 }
 
-function checkAvailability() {
+function checkAvailability() {  //check the availability
     var id = document.getElementById("roomID").value;
     if (!id || /^\s*$/.test(id)) {
         var wrongID = document.getElementById("wrongID");
@@ -101,7 +105,7 @@ function checkAvailability() {
     sendHttpReq("availFeed", params, "./scripts/RequestScript.php");
 }
 
-function makeRequest() {
+function makeRequest() {    //make a request for a room in a given date and timeslot
     document.getElementById("emptyPurpose").innerHTML = "";
     var purpose = document.getElementById("oPurpose").value;
     if (!purpose || /^\s*$/.test(purpose)) {
@@ -115,7 +119,7 @@ function makeRequest() {
     document.getElementById("availFeed").innerHTML = "";
 }
 
-function requestReserve() {
+function requestReserve() { //request a reservation
     var resRoomName = document.getElementById("rName").innerHTML;
     resRoomName = resRoomName.slice(resRoomName.indexOf(":") + 2);
     toggleRequestOverlay(ovrState, "overlay");
@@ -127,7 +131,7 @@ function requestReserve() {
     document.getElementById("reqResult").innerHTML = "";
 }
 
-function cancelAvailability() {
+function cancelAvailability() { 
     document.getElementById("availFeed").innerHTML = "";
 }
 

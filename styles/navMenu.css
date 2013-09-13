@@ -4,15 +4,13 @@
 #navigation { 
     font-family: Armata;
     font-size:16px; 
-    width:80%; 
-    /*//min-width: 250px;*/
+    width:80%;
     margin: 20px auto;	
 }
 
 #navigation ul { 
     margin:0; 
-    padding:0; 
-    
+    padding:0;     
     cursor: pointer;
 }
 
@@ -28,9 +26,7 @@
     background:-ms-linear-gradient(top,#333333 0%,#000000 100%);
     background:linear-gradient(top,#333333 0%,#000000 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333',endColorstr='#000000',GradientType=0);
-    /*border:1px solid #000000;*/
     margin-bottom: 5px;
-    /*border-width: 1px;*/
     border-radius: 5px;
 }
 
@@ -55,5 +51,4 @@
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9900',endColorstr='#ba7103',GradientType=0);
     border-style: none;
     border-radius: 5px;
-    /*//position: relative;*/
 }

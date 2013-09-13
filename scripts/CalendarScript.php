@@ -1,4 +1,7 @@
 <?php
+/*
+ * Has the database access functions need for calendar page
+ */
 
 include 'MyDB.php';
 
@@ -16,7 +19,7 @@ switch ($func_name) {
         break;
 }
 
-function getRooms($dbCon) {
+function getRooms($dbCon) { //gets the list of rooms from DB filtered according to parameters
 
     $whereSet = FALSE;
     $str = "SELECT room_id,room_name,faculty_name,dept_name FROM rooms NATURAL JOIN departments";
@@ -75,7 +78,7 @@ function getRooms($dbCon) {
     }
 }
 
-function getReservations($dbCon) {
+function getReservations($dbCon) {  //gets the list of reservations from DB for a given room in a given day
     $room_id = $_POST['param_2'];
     $date = $_POST['param_3'];
 

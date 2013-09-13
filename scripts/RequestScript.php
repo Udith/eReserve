@@ -1,4 +1,7 @@
 <?php
+/*
+ * Has the database access functions need for request page
+ */
 
 include 'MyDB.php';
 include 'CheckCookie.php';
@@ -17,7 +20,7 @@ switch ($func_name) {
         break;
 }
 
-function isAvailable($dbCon) {
+function isAvailable($dbCon) {  //checks the availability of a given room in a given date and timeslot
 
     $id = $_POST['param_2'];
     $date = $_POST['param_3'];
@@ -76,7 +79,7 @@ function isAvailable($dbCon) {
     }
 }
 
-function makeRequest($dbCon) {
+function makeRequest($dbCon) {      //store a request for a given room in a given date and timeslot
     $chc = new CheckCookie($dbCon);
     $results = $chc->checkCook("user");
 

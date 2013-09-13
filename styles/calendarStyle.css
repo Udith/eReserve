@@ -26,7 +26,6 @@
 
 #reg1{
     margin: 0;
-    /*margin-right: 30px;*/
     width: 65%;
     padding: 10px 10px 10px 10px;
     background-color: #c4c9f4;
@@ -84,7 +83,6 @@
 #sug{
     font-size: 14px;
     text-align: left;
-    /*margin-left: 0;*/
 }
 
 .sugText{

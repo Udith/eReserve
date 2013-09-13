@@ -1,5 +1,9 @@
+/*
+ * Has JS functions need for history page
+ */
+
 $(function() {
-    loadHistory = function loadHistory() {
+    loadHistory = function loadHistory() {  //loads history for the user
         var today = new Date();
         var day = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();

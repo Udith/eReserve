@@ -6,7 +6,7 @@ include './scripts/MyDB.php';
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>eReserve</title>
+        <title>eReserve - Calendar</title>
         <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
         <!-- InstanceBeginEditable name="Attachments" -->
         <link href="styles/calendarStyle.css" rel="stylesheet" type="text/css" />

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
-include 'scripts/CheckCookie.php';
-include 'scripts/MyDB.php';
+include './scripts/CheckCookie.php';
+include './scripts/MyDB.php';
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
     <head>
@@ -9,11 +9,7 @@ include 'scripts/MyDB.php';
         <title>eReserve</title>
         <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
         <!-- InstanceBeginEditable name="Attachments" -->
-        <link href="styles/navMenu.css" rel="stylesheet" type="text/css" />
-        <link href="styles/cancelStyle.css" rel="stylesheet" type="text/css" />
-        <script src="js/jquery-1.10.2.min.js" ></script>
-        <script src="js/common.js" ></script>
-        <script src="js/cancel.js" ></script>
+        <link href="styles/adminStyle.css" rel="stylesheet" type="text/css" />
         <!-- InstanceEndEditable -->
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
     </head>
@@ -35,7 +31,7 @@ include 'scripts/MyDB.php';
             </div>
 
             <div class="titleBar">
-                <!-- InstanceBeginEditable name="PageTitle" -->Cancel Reservations<!-- InstanceEndEditable -->		
+                <!-- InstanceBeginEditable name="PageTitle" -->Administrator<!-- InstanceEndEditable -->		
                 <div id="logName">
                     <!-- InstanceBeginEditable name="UserType" -->
                     <?php
@@ -43,7 +39,7 @@ include 'scripts/MyDB.php';
                     $dbCon = $db->getConnection();
 
                     $chc = new CheckCookie($dbCon);
-                    $result = $chc->checkCook("user");
+                    $result = $chc->checkCook("radmin");
 
                     if (is_null($result)) {
                         
@@ -67,49 +63,14 @@ include 'scripts/MyDB.php';
             </div>
 
             <div class="sidebar"> 
-                <!-- InstanceBeginEditable name="SideBar" -->
-                <div id="navigation">
-                    <ul>
-                        <a href="home.php"><li>Home</li></a>
-                        <a href="calendar.php"><li>Reservation Calendar</li></a>
-                        <a href="request.php"><li>Request Reservations</li></a>
-                        <a href="my_history.php"><li>Reservation History</li></a>
-                    </ul>
-                </div>
-                <!-- InstanceEndEditable -->
+                <!-- InstanceBeginEditable name="SideBar" -->SideBar<!-- InstanceEndEditable -->
             </div>
 
 
             <div class="content">
-                <!-- InstanceBeginEditable name="Content" -->
-                <div id="reservations">
-                    <h2>Reservations</h2>
-                    <hr/>
-                    <table id="reserveTable"></table>                
-                </div>
+                <!-- InstanceBeginEditable name="Content" -->Content<!-- InstanceEndEditable --> 	
 
-                <div id="requests">
-                    <h2>Requests</h2>
-                    <hr/>
-                    <table id="requestTable"></table>
-                </div>
-
-                <div class="overlay" id="overlay">
-                    <div id="confirm">
-                        <input id="opID" type="hidden" value="0"/>
-                        <input id="opType" type="hidden" value="0"/>
-                        <div id="ovrHeader">                         
-                            <h2>Confirm</h2>
-                        </div>
-                        <hr/>                    
-                        <div id="confirmBody"></div>
-                    </div>
-                </div>                
-            </div>
-
-            <!-- InstanceEndEditable --> 	
-
-        </div> 
+            </div> 
 
         </div>
         <!--

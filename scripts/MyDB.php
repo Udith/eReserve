@@ -1,13 +1,16 @@
 <?php
 
+/*
+ * This class handles the connections to DB
+ */
 class Database {
 
     private $db;
 
-    const DB_SERVER = "localhost";
-    const DB_USER = "root";
-    const DB_PASSWORD = "";
-    const DB_NAME = "reservationdb";
+    const DB_SERVER = "localhost";      //DB server
+    const DB_USER = "root";             //DB user name
+    const DB_PASSWORD = "";             //DB password
+    const DB_NAME = "reservationdb";    //DB name
 
     function __construct() {
 
@@ -20,7 +23,7 @@ class Database {
         }
     }
 
-    function getConnection() {
+    function getConnection() {      //returns a connection to the DB
         return $this->db;
     }
 

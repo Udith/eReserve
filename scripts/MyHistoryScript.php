@@ -1,4 +1,7 @@
 <?php
+/*
+ * Has the database access functions need for my_history page
+ */
 
 include 'MyDB.php';
 include 'CheckCookie.php';
@@ -19,7 +22,7 @@ switch ($func_name) {
         break;
 }
 
-function getHistory($dbCon, $usr) {
+function getHistory($dbCon, $usr) {     //gets the list of past reservations for a user form DB
 
     $currentDate = $_POST['param_2'];
     $currentTime = $_POST['param_3'];

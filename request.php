@@ -2,6 +2,10 @@
 <?php
 include 'scripts/CheckCookie.php';
 include 'scripts/MyDB.php';
+
+if (isset($_GET['id'])) {
+    $rId = $_GET['id'];    
+}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
     <head>
@@ -90,7 +94,12 @@ include 'scripts/MyDB.php';
                             <tr>
                                 <td width="129">Room ID</td>
                                 <td width="409">
-                                    <input id="roomID" name="roomID" type="text" class="textBox"/>
+                                    <input id="roomID" name="roomID" type="text" class="textBox" value="<?php
+                                    if (isset($rId)) {
+                                        echo $rId;
+                                    }
+                                    ?>
+                                           "/>
                                     <span id="wrongID">Enter an ID</span>
                                 </td>
                             </tr>

@@ -1,7 +1,12 @@
+/*
+ * Has JS functions need for calendar page
+ */
+
 var ovrShow = false;
 
-$(function() {
+$(function() {      //load the list of rooms
     loadRooms = function loadRooms() {
+        document.getElementById('roomSheetData').innerHTML = "Please wait...";
         var params = ["getRooms"];
         sendHttpReq("roomSheetData", params, "./scripts/CalendarScript.php");
     };
@@ -32,7 +37,7 @@ $(document).ready(function() {
     $("#reqRes").click(goRequest);
 });
 
-function filterRooms() {
+function filterRooms() {    //filters the list of rooms according to given filters
     var fac_name = document.getElementById("fac").value;
     var dep_name = document.getElementById("dep").value;
     var type = $('input[name="roomS"]:checked').val();
@@ -42,20 +47,20 @@ function filterRooms() {
     sendHttpReq("roomSheetData", params, "./scripts/CalendarScript.php");
 }
 
-function showReservations(roomID, roomName) {
+function showReservations(roomID, roomName) {   //show reservations for a given room
     toggleCalendarOverlay();
     document.getElementById('ovrID').innerHTML = roomID;
     document.getElementById('ovrName').innerHTML = roomName;
     getReservations();
 }
 
-function toggleCalendarOverlay() {
+function toggleCalendarOverlay() {      //toggle overlay
     ovrShow = toggleOverlay(ovrShow, "overlay");
     if (!ovrShow)
         document.getElementById('resDataSheet').innerHTML = "";
 }
 
-function getReservations() {
+function getReservations() {    //show reservations for a given room in a given day
     var id = document.getElementById('ovrID').innerHTML;
     var y = document.getElementById('year').value;
     var m = document.getElementById('month').value;
@@ -67,7 +72,7 @@ function getReservations() {
     sendHttpReq("resDataSheet", params, "./scripts/CalendarScript.php");
 }
 
-function goRequest() {
+function goRequest() {  //goto request page
     var id = document.getElementById('ovrID').innerHTML;
     window.location.href = "request.php?id=" + id;
 }

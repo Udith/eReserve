@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This class checks the ereserve cookie
+ * If present, gets user details from DB
+ * Else redirects to appropriate page
+ */
+
 class CheckCookie {
 
     private $db = NULL;
@@ -8,14 +14,14 @@ class CheckCookie {
         $this->db = $dbCon;
     }
 
-    function checkCook($expectedType) {
+    function checkCook($expectedType) {     //check for ereserve cookie
         if (isset($_COOKIE['ereserve'])) {
             $cookHash = $_COOKIE['ereserve'];
 
             $statement = $this->db->prepare("SELECT username, first_name, last_name, type FROM users WHERE cookhash='" . $cookHash . "'");
             $statement->execute();
 
-            if ($statement->rowCount() > 0) {
+            if ($statement->rowCount() > 0) {   //if present gets userdata from DB and returns
 
                 $result = $statement->fetchAll();
                 $usrname = $result[0]['username'];
@@ -39,7 +45,7 @@ class CheckCookie {
         }
     }
 
-    function redirectPage($userType) {
+    function redirectPage($userType) {  //gives the default page for each user type
         switch ($userType) {
             case "user":
                 return "home.php";

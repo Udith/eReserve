@@ -1,4 +1,7 @@
 <?php
+/*
+ * Has common database access functions
+ */
 
 include 'MyDB.php';
 $func_name = $_POST['param_1'];
@@ -15,7 +18,7 @@ switch ($func_name) {
         break;
 }
 
-function getFaculties($dbCon) {
+function getFaculties($dbCon) {     //gets the list of faculties from DB
     $statement = $dbCon->prepare("SELECT faculty_name FROM faculties");
     $statement->execute();
 
@@ -31,7 +34,7 @@ function getFaculties($dbCon) {
     }
 }
 
-function getDepartments($dbCon) {
+function getDepartments($dbCon) {   //gets the list of departments for a given faculty from DB
     $fac_name = $_POST['param_2'];
 
     $statement = $dbCon->prepare("SELECT dept_name FROM departments WHERE faculty_name='" . $fac_name . "'");

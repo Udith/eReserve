@@ -2,29 +2,32 @@
 
 include 'Hasher.php';
 
-//include 'MyDB.php';
-
+//This class handles the user login process
 class Login {
 
     private $db = NULL;
     private $usrType;
 
     function __construct($dbCon) {
-        $this->db = $dbCon;
+        $this->db = $dbCon;     //Gets a connection to the DB
     }
 
-    function authenticate() {       //authenticate the username and password
+    function authenticate() {                   //authenticates the username and password
         $username = $_POST['usrName'];
         $password = $_POST['passwd'];
 
-        if (empty($username)) {
+        if (empty($username)) {                 //if username is empty
             return "Please provide your username";
-        } else if (empty($password)) {
+        } else if (empty($password)) {          //if password is empty
             return "Please provide your password";
         } else {
             $isAuthentic = $this->comparePassword($username, $password);
 
             if ($isAuthentic) {
+                /*
+                 * if authentic, sets the cookie and redirects to the home page
+                 * according to user type
+                 */
                 $this->setTheCookie($username);
                 if ($this->usrType == "user")
                     header("Location:home.php");
@@ -38,7 +41,7 @@ class Login {
         }
     }
 
-    function comparePassword($username, $password) {    //compare the entered password with the one in database
+    function comparePassword($username, $password) {    //compares the entered password with the one in database
         $hasher = new Hasher();
 
         $statement = $this->db->prepare("SELECT password,type FROM users WHERE username='" . $username . "'");
@@ -63,20 +66,19 @@ class Login {
         return $isAuthentic;
     }
 
-    function setTheCookie($usrname) {
-
+    function setTheCookie($usrname) {   //sets the cookie for the user
         $str = $usrname . time();
-        $cookStr = md5($str);
-
+        $cookStr = md5($str);   //encrypt the string to be stored in the cookie
+        
+        //stores the encrypted string in DB
         $statement = $this->db->prepare("UPDATE users SET cookhash='" . $cookStr . "' WHERE username='" . $usrname . "'");
         $success = $statement->execute();
 
+        //stores the same encrypted string in the cookie
         if ($success)
             setcookie("ereserve", $cookStr, "0", "/");
     }
 
 }
 
-//$login = new Login();
-//$login->authenticate();
 ?>

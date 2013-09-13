@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Has the database access functions need for cancel page
+ */
+
 include 'MyDB.php';
 include 'CheckCookie.php';
 
@@ -28,8 +32,7 @@ switch ($func_name) {
         break;
 }
 
-function getReservations($dbCon, $usr) {
-
+function getReservations($dbCon, $usr) {    //get list of PENDING reservations of the user
     $currentDate = $_POST['param_2'];
     $currentTime = $_POST['param_3'];
 
@@ -65,8 +68,7 @@ function getReservations($dbCon, $usr) {
     }
 }
 
-function getRequests($dbCon, $usr) {
-
+function getRequests($dbCon, $usr) {    //get list of PENDING requests of the user
     $currentDate = $_POST['param_2'];
     $currentTime = $_POST['param_3'];
 
@@ -102,22 +104,32 @@ function getRequests($dbCon, $usr) {
     }
 }
 
-function removeReservation($dbCon) {
-
+function removeReservation($dbCon) {    //remove a given reservation from DB
     $id = $_POST['param_2'];
 
     $str = "DELETE FROM reservations WHERE reserve_id='" . $id . "'";
     $statement = $dbCon->prepare($str);
-    $statement->execute();
+    $success = $statement->execute();
+
+    if ($success) {
+        echo "Reservation Cancelled.<br/><button id='nBtn' name='nBtn' class='greenBtn' type='button' onclick='doneResCancel();'>OK</button>";
+    } else {
+        echo "Reservation Not Cancelled.<br/><button id='nBtn' name='nBtn' class='redBtn' type='button' onclick='doneResCancel();'>OK</button>";
+    }
 }
 
-function removeRequest($dbCon) {
-
+function removeRequest($dbCon) {        //remove a given request from DB
     $id = $_POST['param_2'];
 
     $str = "DELETE FROM requests WHERE request_id='" . $id . "'";
     $statement = $dbCon->prepare($str);
-    $statement->execute();
+    $success = $statement->execute();
+    
+    if ($success) {
+        echo "Request Cancelled.<br/><button id='nBtn' name='nBtn' class='greenBtn' type='button' onclick='doneReqCancel();'>OK</button>";
+    } else {
+        echo "Request Not Cancelled.<br/><button id='nBtn' name='nBtn' class='redBtn' type='button' onclick='doneReqCancel();'>OK</button>";
+    }
 }
 
 ?>

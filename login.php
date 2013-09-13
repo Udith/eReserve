@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
-include './scripts/Login.php';
+include './scripts/LoginScript.php';
 include './scripts/CheckCookie.php';
 include './scripts/MyDB.php';
 
@@ -16,7 +16,7 @@ if (isset($_POST['submitted'])) {
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>eReserve</title>
+        <title>eReserve - Login</title>
         <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
         <!-- InstanceBeginEditable name="Attachments" -->
         <link href="styles/loginStyle.css" rel="stylesheet" type="text/css" />
@@ -96,6 +96,7 @@ if (isset($_POST['submitted'])) {
                             <td>
                                 <span id='warnText' class='error'>
                                     <?php
+                                    //Shows the warning for wrong username or password
                                     if (isset($warnText)) {
                                         echo $warnText;
                                     }
@@ -109,6 +110,7 @@ if (isset($_POST['submitted'])) {
                 </form>  
                 <div class="eResLogo"></div>
                 <script type='text/javascript'>
+                    //Validates the input values
                     var frmvalidator = new Validator("loginForm");
                     frmvalidator.EnableOnPageErrorDisplay();
                     frmvalidator.EnableMsgsTogether();
