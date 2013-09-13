@@ -54,6 +54,12 @@ if (isset($_POST['submitted'])) {
 
                     $chc = new CheckCookie($dbCon);
                     $result = $chc->checkCook("guest");
+                    
+                    if ($result != "guest") {
+                        $type = $result[3];
+                        header("Location:" . $chc->redirectPage($type));
+                    }
+                    
                     ?>
                     <!-- InstanceEndEditable -->
                 </div>    

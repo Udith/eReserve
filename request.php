@@ -98,8 +98,7 @@ if (isset($_GET['id'])) {
                                     if (isset($rId)) {
                                         echo $rId;
                                     }
-                                    ?>
-                                           "/>
+                                    ?>"/>
                                     <span id="wrongID">Enter an ID</span>
                                 </td>
                             </tr>

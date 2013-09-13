@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>Req4</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Req4</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/php/eReserve/request.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=roomID</td>
+	<td>100740</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date</td>
+	<td>label=14</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=fromT</td>
+	<td>label=17:00</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=toT</td>
+	<td>label=18:00</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=availCheck</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=b</td>
+	<td>Room Name:</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=rName</td>
+	<td>Room Name: Seminar Room - CSE</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#availability &gt; b</td>
+	<td>There are pending Requests</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=resRoom</td>
+	<td>Request Room</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=canRoom</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=resRoom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#ovrHeader &gt; h2</td>
+	<td>Request Reservation</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=oID</td>
+	<td>100740</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=oDate</td>
+	<td>2013-9-14</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=oTime</td>
+	<td>exact:17:00:00 - 18:00:00</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=oPurpose</td>
+	<td>Test Purpose</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=oItems</td>
+	<td>No</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=requestBtn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#reqResult &gt; span</td>
+	<td>Room is Requested Successfully</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#reqResult &gt; span</td>
+	<td>Room is Requested Successfully</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=closeOvr</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
