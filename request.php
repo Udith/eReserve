@@ -4,7 +4,7 @@ include 'scripts/CheckCookie.php';
 include 'scripts/MyDB.php';
 
 if (isset($_GET['id'])) {
-    $rId = $_GET['id'];    
+    $rId = $_GET['id'];
 }
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
                     </a>      
                 </div>    
                 <div class="siteName">
-                    <span id="mainTitle">Room Reservation System</span>
+                    <span id="mainTitle">University Room Reservation System</span>
                     <br />
                     <span id="subTitle">University of Moratuwa</span>
                 </div>
@@ -136,6 +136,13 @@ if (isset($_GET['id'])) {
                     <div id="availFeed">
 
                     </div>
+                </div>
+                <div id="suggest">
+                    <span style="font-size: 36px;">OR</span>
+                    <br/>
+                    <a href="suggest.php">
+                        <button id="suggestR" class="greenBtn">Suggest Me a Room</button>
+                    </a>
                 </div>
                 <div class="overlay" id="overlay">
                     <div id="reserveBox">

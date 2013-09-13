@@ -4,36 +4,36 @@ include './scripts/CheckCookie.php';
 include './scripts/MyDB.php';
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>eReserve</title>
-        <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
-        <!-- InstanceBeginEditable name="Attachments" -->
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eReserve</title>
+	<link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
+	<!-- InstanceBeginEditable name="Attachments" -->
         <link href="styles/addUserStyle.css" rel="stylesheet" type="text/css" />
         <!-- InstanceEndEditable -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
-    </head>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
+	</head>
 
-    <body>	
-        <div class="container">
-
-            <div class="header">
-                <div class="logo" id="logo">
-                    <a href="home.php">
-                        <img src="images/logo.png" alt="eReserve Logo" name="ereserve_logo" id="ereserve_logo" />
+	<body>	
+		<div class="container">
+        
+  			<div class="header">
+  				<div class="logo" id="logo">
+                	<a href="home.php">
+   	  					<img src="images/logo.png" alt="eReserve Logo" name="ereserve_logo" id="ereserve_logo" />
                     </a>      
-                </div>    
-                <div class="siteName">
-                    <span id="mainTitle">Room Reservation System</span>
-                    <br />
-                    <span id="subTitle">University of Moratuwa</span>
-                </div>
-            </div>
-
-            <div class="titleBar">
-                <!-- InstanceBeginEditable name="PageTitle" -->Add New User<!-- InstanceEndEditable -->		
-                <div id="logName">
-                    <!-- InstanceBeginEditable name="UserType" -->
+    			</div>    
+    			<div class="siteName">
+    				<span id="mainTitle">University Room Reservation System</span>
+        			<br />
+    	    		<span id="subTitle">University of Moratuwa</span>
+    			</div>
+  			</div>
+  
+  			<div class="titleBar">
+			<!-- InstanceBeginEditable name="PageTitle" -->Add New User<!-- InstanceEndEditable -->		
+    			<div id="logName">
+                <!-- InstanceBeginEditable name="UserType" -->
                     <?php
 //                    $db = new Database();
 //                    $dbCon = $db->getConnection();
@@ -57,16 +57,16 @@ include './scripts/MyDB.php';
 //                    }
                     ?>
                     <!-- InstanceEndEditable -->
-                </div>    
-            </div>
-
-            <div class="sidebar"> 
-                <!-- InstanceBeginEditable name="SideBar" -->SideBar<!-- InstanceEndEditable -->
-            </div>
-
-
-            <div class="content">
-                <!-- InstanceBeginEditable name="Content" -->
+    			</div>    
+  			</div>
+  
+  			<div class="sidebar"> 
+             	<!-- InstanceBeginEditable name="SideBar" -->SideBar<!-- InstanceEndEditable -->
+  			</div>
+  			
+  	
+  			<div class="content">
+				<!-- InstanceBeginEditable name="Content" -->
                 <form id="addUser" method="post" action="./scripts/AddUser.php">
 
                     <table>
@@ -205,16 +205,16 @@ include './scripts/MyDB.php';
 
                 </form>
                 <!-- InstanceEndEditable --> 	
-
-            </div> 
-
-        </div>
-        <!--
-        <div class="footer">    
-                <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="8" direction="left">
-                        Copyrights Reserved &nbsp;&nbsp;&nbsp;&nbsp; &copy;2013 Udith Arosha Gunaratna
-        </marquee>
-        </div>
-        -->
-    </body>
-    <!-- InstanceEnd --></html>
+  			    
+		    </div> 
+            
+	</div>
+		<!--
+		<div class="footer">    
+  			<marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="8" direction="left">
+  				Copyrights Reserved &nbsp;&nbsp;&nbsp;&nbsp; &copy;2013 Udith Arosha Gunaratna
+    		</marquee>
+		</div>
+ 		-->
+	</body>
+<!-- InstanceEnd --></html>
