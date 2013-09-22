@@ -82,7 +82,7 @@ include 'scripts/MyDB.php';
   	
   			<div class="content">
 				<!-- InstanceBeginEditable name="Content" -->
-                <table id="historyTable"></table>
+                                <table id="historyTable" class="dataTable" cellspacing="0"></table>
                 <!-- InstanceEndEditable --> 	
   			    
 		    </div> 

@@ -2,8 +2,9 @@
 /* CSS Document */
 
 #navigation { 
-    font-family: Armata;
-    font-size:16px; 
+    font-family: 'Noto Sans';
+    /*font-family: Arial;*/
+    font-size:18px; 
     width:80%;
     margin: 20px auto;	
 }

@@ -68,7 +68,7 @@ function getRooms($dbCon) { //gets the list of rooms from DB filtered according 
             $name = "'" . $row[1] . "'";
             echo '<tr onclick="showReservations(' . $row[0] . ',' . $name . ');">
                     <td>' . $row[0] . '</td>
-                    <td>' . $row[1] . '</td>
+                    <td style="text-align:left;">' . $row[1] . '</td>
                     <td>' . $row[2] . '</td>
                     <td>' . $row[3] . '</td>
                   </tr>';
@@ -86,10 +86,10 @@ function getReservations($dbCon) {  //gets the list of reservations from DB for 
     $statement->execute();
 
     if ($statement->rowCount() > 0) {
-        echo '<tr><th width="200px">Time Slot</th><th>Reservation</th></tr>';
+        echo '<tr><th width="150px">Time Slot</th><th>Reservation</th></tr>';
         while ($row = $statement->fetch(PDO::FETCH_NUM)) {
             $timeStr = substr($row[0], 0, 5) . " - " . substr($row[1], 0, 5);
-            echo '<tr><td>' . $timeStr . '</td><td>' . $row[2] . '</td></tr>';
+            echo '<tr><td>' . $timeStr . '</td><td style="text-align:left;">' . $row[2] . '</td></tr>';
         }
     } else {
         echo 'No reservations for the day';

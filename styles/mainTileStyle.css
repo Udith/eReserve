@@ -15,16 +15,19 @@
 	border-style: solid;
 	text-align: center;
 	border-color: #aaa;
-	border-width: 1px;
-	background-image: url(../images/gray_jean.png);
+	border-width: 3px;
+        min-width: 250px;
+	/*background-image: url(../images/gray_jean.png);*/
+        background-image: url(../images/cream_dust.png);
 }
 
 .tile:hover {		
 	cursor:pointer;	
         color: #000;
-        box-shadow: 0 0 2px 2px #ccc;
-        -moz-box-shadow: 0 0 2px 2px #ccc;
-        -webkit-box-shadow: 0 0 3px 3px #ccc;	
+        border-color: #479f28;
+        box-shadow: 0 0 5px 5px #55fd59;
+/*        -moz-box-shadow: 0 0 2px 2px #479f28;
+        -webkit-box-shadow: 0 0 3px 3px #479f28;	*/
 }
 
 /*#tile1:hover {
@@ -42,7 +45,7 @@
 }*/
 
 .tileText{
-	font-family: Armata;	
+	font-family: 'Noto Sans';	
 	display: inline-block;
 	text-align: center;	
 	width: 100%;	

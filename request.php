@@ -154,19 +154,19 @@ if (isset($_GET['id'])) {
                         <table >
                             <tr>
                                 <td width="120"><strong>Room ID</strong></td>
-                                <td style="color: #069" width="400"><span id="oID"></span></td>
+                                <td style="color: #112a7c" width="400"><span id="oID"></span></td>
                             </tr>
                             <tr>
                                 <td><strong>Room Name</strong></td>
-                                <td style="color: #069"><span id="oName"></span></td>
+                                <td style="color: #112a7c"><span id="oName"></span></td>
                             </tr>
                             <tr>
                                 <td><strong>Date</strong></td>
-                                <td style="color: #069"><span id="oDate"></span></td>
+                                <td style="color: #112a7c"><span id="oDate"></span></td>
                             </tr>
                             <tr>
                                 <td><strong>Time Slot</strong></td>
-                                <td style="color: #069"><span id="oTime"></span></td>
+                                <td style="color: #112a7c"><span id="oTime"></span></td>
                             </tr>
                             <tr>
                                 <td><strong>Purpose</strong></td>

@@ -31,7 +31,7 @@ include './scripts/MyDB.php';
   			</div>
   
   			<div class="titleBar">
-			<!-- InstanceBeginEditable name="PageTitle" -->Administrator<!-- InstanceEndEditable -->		
+			<!-- InstanceBeginEditable name="PageTitle" -->Room Administrator<!-- InstanceEndEditable -->		
     			<div id="logName">
                 <!-- InstanceBeginEditable name="UserType" -->
                     <?php

@@ -67,7 +67,7 @@ function getReservations() {    //show reservations for a given room in a given 
     var d = document.getElementById('date').value;
     var dateStr = y + "-" + m + "-" + d;
 
-    document.getElementById('resDataSheet').innerHTML = "<i>Please wait...</i>";
+    document.getElementById('resDataSheet').innerHTML = "Please wait...";
     var params = ["getReservations", id, dateStr];
     sendHttpReq("resDataSheet", params, "./scripts/CalendarScript.php");
 }

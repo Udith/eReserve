@@ -5,8 +5,11 @@
     visibility: hidden;	
 }
 
-#logName {
-    visibility: hidden;	
+#calendar {
+    height: 40px;    	
+    margin-top: -10px;	
+    margin-left: 10px;
+    padding-top: 0px;
 }
 
 #normLog{
@@ -14,7 +17,13 @@
 }
 
 .sidebar{
-    min-width: 240px;	
+    /*min-width: 240px;*/	
+    width: 0;
+}
+
+.content{
+    width: 100%;
+    /*background: #fff;*/    
 }
 
 .content h2{
@@ -25,16 +34,26 @@
 }
 
 #loginForm {
-	width: 700px;
-	margin: 10px auto;
-	padding: 10px 0px;
-	border: #007dcd solid 2px;
+	width: 400px;
+	margin: 20px auto;
+	padding: 5px 0px;
+	padding-bottom: 0;
+	border: #479f28/*#007dcd*/ solid 2px;
 	border-radius: 20px;
-	background-image: url(../images/gray_jean.png);
+	background-image: url(../images/cream_dust.png);
+	/*background-color: #d7efd5;*/
+}
+
+#erImage{	
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: 20px;
+	margin-top: 20px;
+        float: right;
 }
 
 #loginForm label{
-    font-family: Armata;
+    font-family: 'Noto Sans';
     color: #000;
     padding-top: 8px;
     clear: right;
@@ -43,7 +62,7 @@
 }
 
 #loginForm h1{
-    color: #024b89;
+    color: #479f28;
     padding-top: 8px;
     clear: right;
     margin: 5px 15px;
@@ -56,48 +75,16 @@
     font-size: 18px;
     border-style: solid;
     border-width: thin;
-    border-color: #007dcd;
+    border-color: #479f28;
     padding: 3px 0px;
     margin: 5px 25px;        
 }
 
-#loginBtn {	
-    background:#007dcd;
-    background:-moz-linear-gradient(top,#007dcd 0%,#024b89 100%);
-    background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#007dcd),color-stop(100%,#024b89));
-    background:-webkit-linear-gradient(top,#007dcd 0%,#024b89 100%);
-    background:-o-linear-gradient(top,#007dcd 0%,#024b89 100%);
-    background:-ms-linear-gradient(top,#007dcd 0%,#024b89 100%);
-    background:linear-gradient(top,#007dcd 0%,#024b89 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dcd',endColorstr='#024b89',GradientType=0);
-    padding:2px 10px;
-    margin: 5px 25px;
-    color:#fff;	
-    font-family: Armata;
-    font-size:20px;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;	
-    border:1px solid #ccc;
+#loginBtn {	    
     width: 80%;	
-    height: 45px;	
-    cursor: pointer; 
-    float: right;
-}
-
-#loginBtn:hover{	
-    background:-moz-linear-gradient(top,#035c94 0%,#002d53 100%);
-    background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#035c94),color-stop(100%,#002d53));
-    background:-webkit-linear-gradient(top,#035c94 0%,#002d53 100%);
-    background:-o-linear-gradient(top,#035c94 0%,#002d53 100%);
-    background:-ms-linear-gradient(top,#035c94 0%,#002d53 100%);
-    background:linear-gradient(top,#035c94 0%,#002d53 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#035c94',endColorstr='#002d53',GradientType=0);	
-}
-
-.error{
-    color: #f00;	
-    font-size: 14px;	
+    height: 45px;
+    margin: 0px 25px;
+    /*float: right;*/
 }
 
 #back {	
@@ -130,11 +117,4 @@
     background:-ms-linear-gradient(top,#b00303 0%,#600202 100%);
     background:linear-gradient(top,#b00303 0%,#600202 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b00303',endColorstr='#600202',GradientType=0);
-}
-
-.eResLogo {
-	height: 150px;
-	width: 500px;
-	margin: 0px auto;
-	background-image: url(../images/logo_large.png);
 }

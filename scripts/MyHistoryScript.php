@@ -35,9 +35,9 @@ function getHistory($dbCon, $usr) {     //gets the list of past reservations for
 
     if ($statement->rowCount() > 0) {
         echo '<tr>
-                <th width="30px">Room ID</th>
-                <th width="50px">Date</th>
-                <th width="100px">Time Slot</th>
+                <th width="80px">Room ID</th>
+                <th width="100px">Date</th>
+                <th width="150px">Time Slot</th>
                 <th>Purpose</th>
               </tr> ';
         while ($row = $statement->fetch(PDO::FETCH_NUM)) {
@@ -45,7 +45,7 @@ function getHistory($dbCon, $usr) {     //gets the list of past reservations for
                     <td>' . $row[0] . '</td>
                     <td>' . $row[1] . '</td>
                     <td>' . $row[2] . '-' . $row[3] . '</td>
-                    <td>' . $row[4] . '</td>
+                    <td style="text-align:left;">' . $row[4] . '</td>
                   </tr>';
         }
     } else {

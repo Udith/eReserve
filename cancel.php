@@ -85,13 +85,13 @@ include 'scripts/MyDB.php';
                 <div id="reservations">
                     <h2>Reservations</h2>
                     <hr/>
-                    <table id="reserveTable"></table>                
+                    <table id="reserveTable" class="dataTable" cellspacing="0"></table>                
                 </div>
 
                 <div id="requests">
                     <h2>Requests</h2>
                     <hr/>
-                    <table id="requestTable"></table>
+                    <table id="requestTable" class="dataTable" cellspacing="0"></table>
                 </div>
 
                 <div class="overlay" id="overlay">

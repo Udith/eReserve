@@ -10,6 +10,10 @@ include './scripts/MyDB.php';
         <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
         <!-- InstanceBeginEditable name="Attachments" -->
         <link href="styles/navMenu.css" rel="stylesheet" type="text/css" />
+        <link href="styles/suggestStyle.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-1.10.2.min.js" ></script>
+        <script src="js/common.js" ></script>        
+        <script src="js/suggest.js" ></script>
         <!-- InstanceEndEditable -->
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
     </head>
@@ -68,6 +72,7 @@ include './scripts/MyDB.php';
                     <ul>
                         <a href="home.php"><li>Home</li></a>
                         <a href="calendar.php"><li>Reservation Calendar</li></a>
+                        <a href="request.php"><li>Request Reservations</li></a>
                         <a href="cancel.php"><li>Cancel Reservation</li></a>
                         <a href="my_history.php"><li>Reservation History</li></a>
                     </ul>
@@ -78,7 +83,130 @@ include './scripts/MyDB.php';
 
             <div class="content">
                 <!-- InstanceBeginEditable name="Content" -->
-                Under Construction!!!!
+                <div id="needs">
+                    <h2>Enter Your Requirements</h2>
+                    <hr/>
+                    <form id="needForm">
+                        <table>
+                            <tr>
+                                <td width="150">Date</td>
+                                <td width="409">
+                                    <label>Y</label>
+                                    <select id="year" name="year" class="dropList" ></select>
+                                    &emsp;
+                                    <label>M</label>
+                                    <select id="month" name="month" class="dropList"></select>
+                                    &emsp;
+                                    <label>D</label>
+                                    <select id="date" name="date" class="dropList"></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Time Slot</td>
+                                <td>
+                                    <label>From</label>
+                                    <select id="fromT" name="fromT" class="dropList" ></select>
+                                    &emsp;
+                                    <label>To</label>
+                                    <select id="toT" name="toT" class="dropList"></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Faculty</td>
+                                <td>
+                                    <select id="fac" name="fac" class="dropList" >                     
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Department</td>
+                                <td>
+                                    <select id="dep" name="dep" class="dropList"></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Seating Capacity </td>
+                                <td><b>greater than </b><input name="capacity" type="number" class="textBox" id="capacity" min="1" max="5"/>  
+                                    <span id='capacity_error' class='error'></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Airconditioned</td>
+                                <td>
+                                    <input name="airCon" type="checkbox" id="airCon" />
+                                    <label for="airCon">Yes </label>                                        
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Computer Lab</td>
+                                <td><input name="comLab" type="checkbox" id="comLab" />
+                                    <label for="comLab">Yes </label>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <button id="sugBtn" name="sugBtn" class="blueBtn" type="button">View Suggestions</button>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div id="sugRooms">
+                    <table id="sugTable" class="dataTable" cellspacing="0"></table>
+                </div>
+                <div class="overlay" id="overlay">
+                    <div id="reserveBox">
+                        <div id="ovrHeader"> 
+                            <button id="closeOvr" name="closeOvr" type="button" class="redBtn"><b>X</b></button>
+                            <h2>Request Reservation</h2>
+                        </div>
+                        <hr/>                    
+                        <table >
+                            <tr>
+                                <td width="120"><strong>Room ID</strong></td>
+                                <td style="color: #112a7c" width="400"><span id="oID"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Room Name</strong></td>
+                                <td style="color: #112a7c"><span id="oName"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Date</strong></td>
+                                <td style="color: #112a7c"><span id="oDate"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Time Slot</strong></td>
+                                <td style="color: #112a7c"><span id="oTime"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Purpose</strong></td>
+                                <td>
+                                    <textarea cols="40" rows="3" id="oPurpose"></textarea><br/>
+                                    <span id="emptyPurpose" style="color:#F00; font-size: 14px;"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Equipments</strong></td>
+                                <td>
+                                    <textarea cols="40" rows="3" id="oItems"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="text-align:right;">
+                                    <button id="requestBtn" name="requestBtn" class="greenBtn" type="button">REQUEST</button>
+                                    <br/>
+                                    <span id="reqResult" style="text-align:right; font-size: 18px;"></span>
+                                </td>
+                            </tr>                            
+                        </table>
+
+                    </div>
+
+                </div>
                 <!-- InstanceEndEditable --> 	
 
             </div> 

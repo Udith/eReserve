@@ -1,44 +1,27 @@
-#avail{
+/* 
+    Document   : suggestStyle    
+    Author     : Udith Arosha
+    Description:
+        Style sheet for suggest.php page
+*/
+
+#needs{
 	width: 600px;
 	margin: 10px auto;
 	color: #006600;
 	font-size: 16px;
 	padding: 10px;
 	border: #479f28 solid 1px;
-	border-radius: 10px;
+	border-radius: 10px;        
 	background-image: url(../images/cream_dust.png);
 }
 
-#availForm, #availFeed{
-    margin-left: 50px;
+#needForm{
+    margin-left: 30px;
 }
 
-#avail .textBox, #avail .dropList, #oPurpose, #oItems{
+#needs .textBox, .dropList, #oPurpose, #oItems{
     border-color: #479f28;
-}
-
-#roomID{
-    font-size: 16px;
-}
-
-#availCheck{
-    height: 30px;
-    width: 100%;
-    font-size: 14px;
-}
-
-#availFeed{
-    font-size: 16px;
-    line-height: 28px;
-    padding-right: 15px;
-    text-align: right;
-}
-
-#resRoom, #canRoom{
-    height: 30px;
-    width: 44%;
-    font-size: 14px;
-    padding: 0 2%;
 }
 
 tr {
@@ -46,12 +29,7 @@ tr {
 }
 
 td {
-    padding: 0px 20px;
-}
-
-label{
-    font-size: 16px;
-    color:#009a3e;
+    padding: 5px 20px;
 }
 
 h2{
@@ -61,11 +39,22 @@ h2{
     margin-top: 0;
 }
 
-#wrongID{
-    color: #f00;
-    font-size: 12pt;
-    display: none;
+#sugBtn{
+    height: 30px;
+    width: 100%;
+    font-size: 14px;
 }
+
+#sugTable{
+    width: 98%;
+}
+
+#sugTable tr:hover td {
+    background: -moz-linear-gradient(100% 25% 90deg, #f6f6f6, #f1f1f1);
+    background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f1f1f1), to(#f6f6f6));
+    cursor: pointer;
+}
+
 #reserveBox {
     position: relative;
     z-index: 3;
@@ -115,15 +104,4 @@ h2{
     font-size: 24px;
     padding: 0 2%;
     margin-bottom: 5px;	
-}
-
-#suggest{
-    margin: 10px auto;
-    text-align: center;
-}
-
-#suggestR{
-    width: 300px;
-    height: 50px;
-    font-size: 22px;
 }
