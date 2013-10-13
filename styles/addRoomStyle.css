@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-#addUser {
+#addRoom {
 	width: 700px;
 	margin: 10px auto;
 	color: #9f2887;
@@ -12,13 +12,14 @@
 	background-image: url(../images/cream_dust.png);
 }
 
-#addUser td{
+#addRoom td{
     padding: 5px;
 }
 
-.textBox{
+.textBox, .dropList{
 	height: 20px;
 	width: 200px;
+        font-size: medium;
         border-color: #9f2887;
 }
 

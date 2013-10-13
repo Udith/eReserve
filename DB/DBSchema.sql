@@ -5,8 +5,14 @@ create table users(
     last_name varchar(50) not null,
     email varchar(100) not null,
     type varchar(10) not null,
-    cookhash varchar(50),
+    reputation int(5),
     primary key(username)
+);
+
+create table cookies(
+    username varchar(10),
+    cookhash varchar(50),
+    primary key(cookhash)
 );
 
 create table faculties(
@@ -22,11 +28,12 @@ create table departments(
 );
 
 create table rooms (
-    room_id int(6),
+    room_id int(6) NOT NULL AUTO_INCREMENT,
     room_name   varchar(100) not null,
     dept_name   varchar(100),
     capacity    int(5) check(capacity>0),
     aircondition    ENUM('Y','N'),
+    com_lab    ENUM('Y','N'),
     primary key(room_id),
     foreign key(dept_name) references departments(dept_name) on delete set null    
 );
@@ -55,8 +62,36 @@ create table reservations (
     reason  TEXT not null,
     req_items    TEXT,
     auth_by varchar(10) not null,
+    feebback int(2),
     primary key(reserve_id),
     foreign key(room_id) references rooms(room_id) on delete cascade,
     foreign key(username) references users(username) on delete cascade,
     foreign key(auth_by) references users(username) on delete cascade
+);
+
+create table admins(
+    username varchar(10),
+    room_id int(6),
+    primary key(username,room_id),
+    foreign key(room_id) references rooms(room_id) on delete cascade,
+    foreign key(username) references users(username) on delete cascade
+);
+
+create table staff(
+    username varchar(10),
+    room_id int(6),
+    primary key(username,room_id),
+    foreign key(room_id) references rooms(room_id) on delete cascade,
+    foreign key(username) references users(username) on delete cascade
+);
+
+create table complaints(
+    complaint_id int(10) NOT NULL AUTO_INCREMENT, 
+    reserve_id int(10),
+    complaint  TEXT NOT NULL,
+    made_by varchar(10),
+    reviewed ENUM('Y','N'),    
+    primary key(complaint_id),
+    foreign key(reserve_id) references reservations(reserve_id) on delete cascade,
+    foreign key(made_by) references users(username) on delete set null    
 );

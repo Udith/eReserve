@@ -1,7 +1,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
-include 'scripts/CheckCookie.php';
-include 'scripts/MyDB.php';
+include './scripts/CheckCookie.php';
+include './scripts/MyDB.php';
+
+$chc = new CheckCookie();
+
+session_start();
+if (!isset($_SESSION['username'])) {
+    $db = new Database();
+    $dbCon = $db->getConnection();
+    $result = $chc->checkCook($dbCon, "user");
+
+    if ($result != "guest") {
+        $_SESSION['username'] = $result[0];
+        $_SESSION['first'] = $result[1];
+        $_SESSION['last'] = $result[2];
+        $_SESSION['type'] = $result[3];
+    }
+} else {
+    if ($_SESSION['type'] != "user") {
+        header("Location:" . $chc->redirectPage($_SESSION['type']));
+    }
+}
+$usrname = $_SESSION['username'];
+$first_name = $_SESSION['first'];
+$last_name = $_SESSION['last'];
+$type = $_SESSION['type'];
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
 	<head>
@@ -39,26 +63,12 @@ include 'scripts/MyDB.php';
     			<div id="logName">
                 <!-- InstanceBeginEditable name="UserType" -->
                     <?php
-                    $db = new Database();
-                    $dbCon = $db->getConnection();
-
-                    $chc = new CheckCookie($dbCon);
-                    $result = $chc->checkCook("user");
-
-                    if (is_null($result)) {
-                        
-                    } else {
-
-                        $usrname = $result[0];
-                        $first_name = $result[1];
-                        $last_name = $result[2];
-                        $type = $result[3];
+                    if(isset($usrname)){
                         echo ' 
                             	<a href="scripts/Logout.php">
-                    				<input type="submit" name="logout" id="logout" value="logout" class="redBtn"/>
-                				</a>
+                                    <input type="submit" name="logout" id="logout" value="logout" class="redBtn"/>
+                		</a>
                             ';
-
                         echo $first_name . " " . $last_name;
                     }
                     ?>

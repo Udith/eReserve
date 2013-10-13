@@ -12,6 +12,19 @@ if (isset($_POST['submitted'])) {
     $warnText = $logScript->authenticate();
     $usr = $_POST['usrName'];
 }
+
+session_start();
+$chc = new CheckCookie();
+if (isset($_SESSION['username'])) {
+    header("Location:" . $chc->redirectPage($_SESSION['type']));
+} else {
+    $result = $chc->checkCook($dbCon, "guest");
+
+    if ($result != "guest") {
+        $type = $result[3];
+        header("Location:" . $chc->redirectPage($type));
+    }
+}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
     <head>
@@ -48,18 +61,6 @@ if (isset($_POST['submitted'])) {
                 <!-- InstanceEndEditable -->		
                 <div id="logName">
                     <!-- InstanceBeginEditable name="UserType" -->
-                    <?php
-                    $db = new Database();
-                    $dbCon = $db->getConnection();
-
-                    $chc = new CheckCookie($dbCon);
-                    $result = $chc->checkCook("guest");
-
-                    if ($result != "guest") {
-                        $type = $result[3];
-                        header("Location:" . $chc->redirectPage($type));
-                    }
-                    ?>
                     <a href="calendar.php">
                         <button id="calendar" class="blueBtn" type="button">Reservation Calendar</button>
                     </a>
@@ -78,7 +79,7 @@ if (isset($_POST['submitted'])) {
                 <table width="100%">
                     <tr>
                         <td>
-                            <img src="images/er_image.png"  alt="" width="500" height="375" id="erImage"/>        
+                            <img src="images/er_image1.png"  alt="" width="500" height="375" id="erImage"/>        
                         </td>
                         <td>
                             <form id="loginForm" method="post" action="login.php">
@@ -105,6 +106,11 @@ if (isset($_POST['submitted'])) {
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td><input name="remember" type="checkbox" id="remember" form="loginForm" />
+                                            <label for="remember">remember me </label></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
                                         <td><input type="submit" id="loginBtn" value="login" class="greenBtn"/></td>
 
                                     </tr>  
@@ -120,6 +126,11 @@ if (isset($_POST['submitted'])) {
                                                 ?>
                                             </span>
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <span id='noJs' class='error' style="padding:0px 10px;font-size: 16px;font-weight: bold;">
+                                            <noscript>Please enable JavaScript in your browser.</noscript>
+                                        </span>
                                     </tr>
                                 </table>  
                                 <input type="hidden" name="submitted" value="1"/>

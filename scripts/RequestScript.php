@@ -80,8 +80,8 @@ function isAvailable($dbCon) {  //checks the availability of a given room in a g
 }
 
 function makeRequest($dbCon) {      //store a request for a given room in a given date and timeslot
-    $chc = new CheckCookie($dbCon);
-    $results = $chc->checkCook("user");
+    $chc = new CheckCookie();
+    $results = $chc->checkCook($dbCon, "user");
 
     $username = $results[0];
     $room_id = $_POST['param_2'];

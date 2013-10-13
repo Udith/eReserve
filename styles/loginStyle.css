@@ -69,7 +69,7 @@
     font-size: 36px;
 }
 
-.logBox {
+.logBox, #remember {
     border-radius: 4px;
     text-indent: 10px;
     font-size: 18px;
@@ -78,6 +78,10 @@
     border-color: #479f28;
     padding: 3px 0px;
     margin: 5px 25px;        
+}
+
+#remember {    
+    margin-right: 0px;        
 }
 
 #loginBtn {	    

@@ -11,8 +11,8 @@ $func_name = $_POST['param_1'];
 $db = new Database();
 $dbCon = $db->getConnection();
 
-$chc = new CheckCookie($dbCon);
-$results = $chc->checkCook("user");
+$chc = new CheckCookie();
+$results = $chc->checkCook($dbCon,"user");
 $username = $results[0];
 
 

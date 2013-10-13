@@ -25,9 +25,9 @@
 	cursor:pointer;	
         color: #000;
         border-color: #479f28;
-        box-shadow: 0 0 5px 5px #55fd59;
-/*        -moz-box-shadow: 0 0 2px 2px #479f28;
-        -webkit-box-shadow: 0 0 3px 3px #479f28;	*/
+        box-shadow: 0 0 2px 2px #479f28;
+        -moz-box-shadow: 0 0 2px 2px #479f28;
+        -webkit-box-shadow: 0 0 3px 3px #479f28;	
 }
 
 /*#tile1:hover {

@@ -9,7 +9,7 @@ session_start();
 if (!isset($_SESSION['username'])) {
     $db = new Database();
     $dbCon = $db->getConnection();
-    $result = $chc->checkCook($dbCon, "user");
+    $result = $chc->checkCook($dbCon, "radmin");
 
     if ($result != "guest") {
         $_SESSION['username'] = $result[0];
@@ -18,7 +18,7 @@ if (!isset($_SESSION['username'])) {
         $_SESSION['type'] = $result[3];
     }
 } else {
-    if ($_SESSION['type'] != "user") {
+    if ($_SESSION['type'] != "radmin") {
         header("Location:" . $chc->redirectPage($_SESSION['type']));
     }
 }
@@ -34,10 +34,10 @@ $type = $_SESSION['type'];
         <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
         <!-- InstanceBeginEditable name="Attachments" -->
         <link href="styles/navMenu.css" rel="stylesheet" type="text/css" />
-        <link href="styles/myHistoryStyle.css" rel="stylesheet" type="text/css" />
+        <link href="styles/complaintStyle.css" rel="stylesheet" type="text/css" />
         <script src="js/jquery-1.10.2.min.js" ></script>
         <script src="js/common.js" ></script>
-        <script src="js/myHistory.js" ></script>
+        <script src="js/complain.js"></script>
         <!-- InstanceEndEditable -->
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
     </head>
@@ -58,8 +58,8 @@ $type = $_SESSION['type'];
                 </div>
             </div>
 
-            <div class="titleBar">
-                <!-- InstanceBeginEditable name="PageTitle" -->Reservation History<!-- InstanceEndEditable -->		
+            <div class="titleBar adminTitle">
+                <!-- InstanceBeginEditable name="PageTitle" -->Complaints<!-- InstanceEndEditable -->		
                 <div id="logName">
                     <!-- InstanceBeginEditable name="UserType" -->
                     <?php
@@ -80,10 +80,8 @@ $type = $_SESSION['type'];
                 <!-- InstanceBeginEditable name="SideBar" -->
                 <div id="navigation">
                     <ul>
-                        <a href="home.php"><li>Home</li></a>
-                        <a href="calendar.php"><li>Reservation Calendar</li></a>
-                        <a href="request.php"><li>Request Reservations</li></a>
-                        <a href="cancel.php"><li>Cancel Reservation</li></a>
+                        <a href="admin.php"><li>Home</li></a>
+                        <a href="room_history.php"><li>Room History</li></a>                        
                     </ul>
                 </div>
                 <!-- InstanceEndEditable -->
@@ -91,8 +89,55 @@ $type = $_SESSION['type'];
 
 
             <div class="content">
-                <!-- InstanceBeginEditable name="Content" -->                                
-                <table id="historyTable" class="dataTable" cellspacing="0"></table>                
+                <!-- InstanceBeginEditable name="Content" -->
+                <div id="rooms">
+                    <h2>Complaints to be Reviewed</h2>
+                    <hr/>
+                    <table id="complaintTable" class="dataTable" cellspacing="0"></table>
+                </div>
+                <div class="overlay" id="overlay">
+                    <div id="complaintBox">
+                        <div id="ovrHeader"> 
+                            <button id="closeOvr" name="closeOvr" type="button" class="redBtn"><b>X</b></button>
+                        </div>                             
+                        <table >
+                            <tr>
+                                <td width="150"><strong>Complaint ID</strong></td>
+                                <td style="color: #112a7c" width="400"><span id="oID"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Complained by</strong></td>
+                                <td style="color: #112a7c"><span id="oBy"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Complaint</strong></td>
+                                <td style="color: #112a7c"><span id="oComp"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Room</strong></td>
+                                <td style="color: #112a7c"><span id="oRoom"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reserved by</strong></td>
+                                <td style="color: #112a7c"><span id="oResBy"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Date</strong></td>
+                                <td style="color: #112a7c"><span id="oDate"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TimeSlot</strong></td>
+                                <td style="color: #112a7c"><span id="oTime"></span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="text-align:right;">
+                                    <button id="reviewBtn" name="reviewBtn" class="blueBtn" type="button">Reviewed</button>
+                                </td>
+                            </tr>                            
+                        </table>
+                    </div>
+                </div>
                 <!-- InstanceEndEditable --> 	
 
             </div> 

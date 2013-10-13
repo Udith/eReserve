@@ -1,8 +1,120 @@
 @charset "utf-8";
 /* CSS Document */
 
-.titleBar {
-	background-image: none;
-	background-color: #5669f4;	
-	color: #fff;	
+h2{
+	margin-left: 20px;
+	margin-bottom: 0px;
+        font-size: 28px;
+/*	color: #003366;
+        text-shadow: 0.05em 0.05em #fff;
+	font-style: normal;
+	font-weight: bold;*/
+	
+}
+
+#roomsTable{
+    width: 90%;
+}
+
+#roomsTable tr:hover td, #reqTable .rI:hover {
+    background: -moz-linear-gradient(100% 25% 90deg, #f6f6f6, #f1f1f1);
+    background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f1f1f1), to(#f6f6f6));
+    cursor: pointer;
+}
+
+#timeslots{
+    display: none;
+    margin: 10px auto;
+    background-image: url(../images/cream_dust.png);
+    border-radius: 5px;
+}
+
+#requests{
+    margin-top: 20px;
+}
+
+#roomID, #roomName, #date{
+    font-size: 20px;
+    color: #000;
+    margin-left: 40px;
+}
+
+#reqTable .neutral, #reqTable .accept, #reqTable .reject, #reqTable .res{
+    border-style: none;
+    border-bottom: #fff solid 1px;
+    border-top: #fff solid 1px;
+}
+
+#reqTable .res{
+    background: #1d1a84;
+}
+
+#reqTable .neutral{
+    background: #8e8989;
+}
+
+#reqTable .accept{
+    background: #00ac14;
+}
+
+#reqTable .reject{
+    background: #ac0000;
+}
+
+#reserveBox {
+    position: relative;
+    z-index: 3;
+    margin: 150px auto 0px auto;
+    width: 600px; 
+    /*min-height: 300px;*/
+    font-family: 'Noto Sans';
+    background-image: url(../images/cream_dust.png);
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: #000 solid;
+    color: #000;
+}
+
+#reserveBox table{
+    margin: 10px;
+}
+
+#ovrHeader{
+    padding: 5px 10px;	
+}
+
+#closeOvr{
+    float: right;
+    margin-right: 0px;
+    margin-top: 0px;
+    height: 26px;
+    width: 26px;
+    border-radius: 13px;
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    font-size: 14px;
+    padding: 0;
+}
+
+#acceptBtn, #rejectBtn{
+	width: 134px;
+	height: 30px;	
+	font-size: 14px;
+	margin: 10px auto 0 10px; 
+}
+
+#save{
+    float: right;
+    text-align: right;
+    display: none;
+}
+
+#ovrlapWarn{
+    color: #d00;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff;
+    text-align: center;
+    margin-right: 5px 5%;
+    display: none;
 }

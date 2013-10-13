@@ -20,7 +20,7 @@ h2{
     width: 300px; 
     /*min-height: 300px;*/
     font-family: Armata;
-    background-image: url(../images/gray_jean.png);
+    background-image: url(../images/cream_dust.png);
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -46,7 +46,8 @@ h2{
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	border-radius:0;		
+	border-radius:0;
+        margin: 0px;
 }
 
 table{    

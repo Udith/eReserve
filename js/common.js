@@ -191,11 +191,7 @@ function sendHttpReq() {    //send ajax httprequests to interact with the databa
     var elementId = arguments[0];
     var params = arguments[1];
     var script = arguments[2];
-    var retFunction;
-    if (arguments[3]) {
-        retFunction = arguments[3];
-    }
-
+    
     var xhr;
 
     if (window.XMLHttpRequest) {
@@ -217,10 +213,7 @@ function sendHttpReq() {    //send ajax httprequests to interact with the databa
     function display_data() {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
-                document.getElementById(elementId).innerHTML = xhr.responseText;
-                if (retFunction) {
-                    retFunction();
-                }
+                document.getElementById(elementId).innerHTML = xhr.responseText;                
             } else {
                 document.getElementById(elementId).innerHTML = "An error occured: Error code " + xhr.status;
             }

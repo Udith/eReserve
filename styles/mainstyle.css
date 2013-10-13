@@ -2,7 +2,8 @@
 @font-face {
     font-family: 'SEGOEUIL';
     src: url('fonts/SEGOEUIL.eot');
-    src: local('SEGOEUIL'), url('fonts/SEGOEUIL.ttf') format('truetype');
+    src: local('SEGOEUIL'), url('fonts/SEGOEUIL.otf') format('opentype');
+    /*src: local('SEGOEUIL'), url('fonts/SEGOEUIL.ttf') format('truetype');*/
 }
 /*@font-face {
   font-family: 'Armata';
@@ -96,6 +97,18 @@ body p{
     height: 40px;
 }
 
+.adminTitle{
+    background-color: #47289f;
+}
+
+.oadminTitle{
+    background-color: #9f2887;
+}
+
+.staffTitle{
+    background-color: #9f9028;
+}
+
 #logName {
     font-family: 'Noto Sans';
     font-size:20px;    
@@ -166,7 +179,8 @@ body p{
     color: #f00;    
 }
 
-.redBtn{
+/*********************** CSS for gradient buttons ***********************/
+/*.redBtn{
     background:#cd0000;
     background:-moz-linear-gradient(top,#cd0000 0%,#890202 100%);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#cd0000),color-stop(100%,#890202));
@@ -186,7 +200,8 @@ body p{
     cursor: pointer;
 }
 
-.redBtn:hover{		
+.redBtn:hover{	
+    background:#b00303;
     background:-moz-linear-gradient(top,#b00303 0%,#600202 100%);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#b00303),color-stop(100%,#600202));
     background:-webkit-linear-gradient(top,#b00303 0%,#600202 100%);
@@ -216,7 +231,8 @@ body p{
     cursor: pointer;        
 }
 
-.blueBtn:hover {	
+.blueBtn:hover {
+    background:#035c94;
     background:-moz-linear-gradient(top,#035c94 0%,#002d53 100%);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#035c94),color-stop(100%,#002d53));
     background:-webkit-linear-gradient(top,#035c94 0%,#002d53 100%);
@@ -246,6 +262,7 @@ body p{
 }
 
 .greenBtn:hover{
+    background:#03b01f;
     background:-moz-linear-gradient(top,#03b01f 0%,#02601a 100%);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#03b01f),color-stop(100%,#02601a));
     background:-webkit-linear-gradient(top,#03b01f 0%,#02601a 100%);
@@ -253,7 +270,66 @@ body p{
     background:-ms-linear-gradient(top,#03b01f 0%,#02601a 100%);
     background:linear-gradient(top,#03b01f 0%,#02601a 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#03b01f',endColorstr='#02601a',GradientType=0);
+}*/
+
+/*********************** CSS for flat buttons ***********************/
+
+.redBtn{
+    background:#cd0000;
+    border:1px solid #9a0000;
+    padding:5px 20px;
+    color:#fff;	
+    font-family: 'Noto Sans';
+    font-size:20px;
+    cursor: pointer;
 }
+
+.redBtn:disabled{
+    background:#b00303;
+    cursor: default;
+}
+
+.redBtn:hover{	
+    background:#b00303;
+}
+
+.blueBtn {	
+    background:#007dcd;
+    border:1px solid #00489a;
+    padding:5px 20px;
+    color:#fff;	
+    font-family: Noto Sans;
+    font-size:20px;
+    cursor: pointer;        
+}
+
+.blueBtn:disabled {	
+    background:#035c94;
+    cursor: default;        
+}
+
+.blueBtn:hover{
+    background:#035c94;
+}
+
+.greenBtn {       
+    color: #FFF;
+    cursor: pointer;
+    background:#03b01f;
+    border:1px solid #009a3e;
+    font-size: 16px;
+    font-family: Noto Sans;
+}
+
+.greenBtn:disabled{
+    background:#02601a;
+    cursor: default;
+}
+
+.greenBtn:hover{
+    background:#02601a;
+}
+/********************************************************************/
 
 .textBox{
     border-radius: 4px;    

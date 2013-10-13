@@ -15,11 +15,12 @@
     cursor: pointer;
 }
 
-#navigation li { 
+/*#navigation li { 
+    color: #fff;
     list-style:none;
     padding: 10px 20px;
-    min-height: 30px;
-    background:#333333;
+    min-height: 30px;    
+    background:#000000;
     background:-moz-linear-gradient(top,#333333 0%,#000000 100%);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#333333),color-stop(100%,#000000));
     background:-webkit-linear-gradient(top,#333333 0%,#000000 100%);
@@ -31,17 +32,8 @@
     border-radius: 5px;
 }
 
-#navigation a {
-    color: #fff; 
-    display:block;
-    min-height:25px;
-    line-height: 25px;
-    text-align:center; 
-    text-decoration:none;    
-    width:100%;
-}
-
-#navigation li:hover {	    
+#navigation li:hover {	
+    color: #000;
     background:#ff9900;
     background:-moz-linear-gradient(top,#ff9900 0%,#ba7103 100%);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ff9900),color-stop(100%,#ba7103));
@@ -50,6 +42,32 @@
     background:-ms-linear-gradient(top,#ff9900 0%,#ba7103 100%);
     background:linear-gradient(top,#ff9900 0%,#ba7103 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9900',endColorstr='#ba7103',GradientType=0);
-    border-style: none;
+    border: #000 solid 1px;
     border-radius: 5px;
+}*/
+
+/******************************** Flat menu buttons ***************************/
+#navigation li { 
+    color: #fff;
+    list-style:none;
+    padding: 10px 20px;
+    min-height: 30px;    
+    background:#000000;margin-bottom: 5px;
 }
+
+#navigation li:hover {	
+    color: #000;
+    background:#ff9900;
+    border: #000 solid 1px;
+}
+/******************************************************************************/
+
+#navigation a {     
+    display:block;
+    min-height:25px;
+    line-height: 25px;
+    text-align:center; 
+    text-decoration:none;    
+    width:100%;
+}
+

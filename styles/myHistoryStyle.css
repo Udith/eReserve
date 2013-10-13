@@ -1,3 +1,15 @@
 #historyTable{
     width:90%;    
 }
+#selectPanel {
+	width: 500px;
+	margin: 10px auto;
+	border-radius: 10px;
+	border: #479f28 solid 1px;
+	color: #479f28;
+	background-image: url(../images/cream_dust.png);
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
