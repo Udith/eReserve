@@ -26,6 +26,10 @@ $usrname = $_SESSION['username'];
 $first_name = $_SESSION['first'];
 $last_name = $_SESSION['last'];
 $type = $_SESSION['type'];
+
+if(isset($_GET['id'])){
+    $rId = $_GET['id'];
+}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
 	<head>

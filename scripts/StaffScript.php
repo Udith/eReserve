@@ -62,7 +62,7 @@ function getRoomsList($dbCon, $username) {
                   </tr>';
         }
     } else {
-        echo 'No Pending Requests.';
+        echo 'No Pending Reservations.';
     }
 }
 

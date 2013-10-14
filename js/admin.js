@@ -24,7 +24,7 @@ $(document).ready(function() {
     $("#saveBtn").click(saveAll);
 });
 
-function loadRequests(roomID, roomName, date) {
+function loadRequests(roomID, roomName, date) { //load the reservation for a given room for a given day
     document.getElementById("roomID").innerHTML = "<b>Room ID: </b>" + roomID;
     document.getElementById("roomName").innerHTML = "<b>Room Name: </b>" + roomName;
     document.getElementById("date").innerHTML = "<b>Date: </b>" + date;
@@ -39,7 +39,7 @@ function loadRequests(roomID, roomName, date) {
     warn.style.display = "none";
 }
 
-function loadExistingData(roomID, roomName, date) {
+function loadExistingData(roomID, roomName, date) { //get existing reservations
     $.ajax({
         type: 'POST',
         url: './scripts/AdminScript.php',
@@ -52,7 +52,7 @@ function loadExistingData(roomID, roomName, date) {
     });
 }
 
-function populateExisting(r, roomID, roomName, date) {
+function populateExisting(r, roomID, roomName, date) {//stores existing reservations
     existing = new Array(14);
 
     for (var i = 0; i < r.length; i++) {
@@ -68,7 +68,7 @@ function populateExisting(r, roomID, roomName, date) {
     }
 }
 
-function loadNewData(roomID, roomName, date) {
+function loadNewData(roomID, roomName, date) {//get new requests
     $.ajax({
         type: 'POST',
         url: './scripts/AdminScript.php',
@@ -81,7 +81,7 @@ function loadNewData(roomID, roomName, date) {
     });
 }
 
-function populateNew(r) {
+function populateNew(r) {   //stores new requests
     requests = new Array();
     reqMatrix = new Array();
 
@@ -107,7 +107,7 @@ function populateNew(r) {
     drawTimeLine();
 }
 
-function drawTimeLine() {
+function drawTimeLine() {   //draws the timeline view
     var headRow = '<tr><th rowspan="2" width="80px">Request ID</th><th colspan="14">Time Slots</th></tr>';
     headRow += '<tr>';
     for (var c = 1; c <= 14; c++) {
@@ -149,7 +149,7 @@ function drawTimeLine() {
     $(window).scrollTop($(document).height());
 }
 
-function showDetails(row) {
+function showDetails(row) { //shows the details of the request
     document.getElementById("row").innerHTML = row;
     document.getElementById("oID").innerHTML = requests[row].id;
     document.getElementById("oName").innerHTML = requests[row].name + " (" + requests[row].username + ")";
@@ -160,7 +160,7 @@ function showDetails(row) {
     toggleAdminOverlay();
 }
 
-function accept() {
+function accept() { //accept the reservation
     var row = document.getElementById("row").innerHTML;
     requests[row].status = "a";
     toggleAdminOverlay();
@@ -170,7 +170,7 @@ function accept() {
     warn.style.display = "none";
 }
 
-function reject() {
+function reject() { //reject the reservation
     var row = document.getElementById("row").innerHTML;
     requests[row].status = "r";
     toggleAdminOverlay();
@@ -184,7 +184,7 @@ function toggleAdminOverlay() {
     ovrState = toggleOverlay(ovrState, "overlay");
 }
 
-function checkOverlap() {
+function checkOverlap() {   //check for any overlaping requests
     for (var i = 0; i < 14; i++) {
         var exist = false;
         var accepted = false;
@@ -212,7 +212,7 @@ function checkOverlap() {
     return true;
 }
 
-function saveAll() {
+function saveAll() {    //save all permanently
     var overlapCheck = checkOverlap();
     if (!overlapCheck) {
         var warn = document.getElementById("ovrlapWarn");
@@ -240,7 +240,7 @@ function review() {
     });
 }
 
-function showHidden() {
+function showHidden() { //shows the key
     var save = document.getElementById("save");
     save.style.display = "block";
     var time = document.getElementById("timeslots");

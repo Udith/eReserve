@@ -16,11 +16,13 @@ $(document).ready(function() {
 
 });
 
+//completed the reservation
 function completed(id) {
     document.getElementById('reservation').innerHTML = id;
     toggleStaffOverlay();
 }
 
+//function to provide a feedback for the reservation
 function rate() {
     var id = document.getElementById('reservation').innerHTML;
     var rating = $('input:radio[name=rating]:checked').val();

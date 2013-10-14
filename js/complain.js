@@ -1,6 +1,6 @@
 var ovrState = false;
 
-$(function() {                          //load the list of complaits to be reviewed
+$(function() {                          //load the list of complaints to be reviewed
     loadComplaints = function loadComplaints() {
         document.getElementById('complaintTable').innerHTML = "Please wait...";
         var params = ["getComplaintList"];
@@ -15,7 +15,7 @@ $(document).ready(function() {
     $("#reviewBtn").click(reviewComplaint);
 });
 
-function complaintDetails(id) {
+function complaintDetails(id) { //get the full details of the reservation
     $.ajax({
         type: 'POST',
         url: './scripts/ComplaintScript.php',
@@ -28,7 +28,7 @@ function complaintDetails(id) {
     });
 }
 
-function loadComplaintDetails(r) {
+function loadComplaintDetails(r) {//load the full details of the reservation
     toggleComplaintOverlay();
     var details = {comp_id: r[0], made_by: r[1], complaint: r[2], room: r[3], user: r[4], date: r[5], time: r[6]};
     document.getElementById('oID').innerHTML = details['comp_id'];
@@ -40,7 +40,7 @@ function loadComplaintDetails(r) {
     document.getElementById('oTime').innerHTML = details['time'];
 }
 
-function reviewComplaint() {
+function reviewComplaint() {    //mark the complaint as reviewed
     var id = document.getElementById('oID').innerHTML;
     $.ajax({
         type: 'POST',
@@ -60,41 +60,3 @@ function toggleComplaintOverlay() {
     ovrState = toggleOverlay(ovrState, "overlay");
 }
 
-//
-//function completed(id) {
-//    document.getElementById('reservation').innerHTML = id;
-//    toggleStaffOverlay();
-//}
-//
-////function hideComp(){
-////    var compRow = document.getElementById('compRow');
-////    compRow.style.display = "none";
-////}
-////
-////function showComp(){    
-////    var compRow = document.getElementById('compRow');
-////    compRow.style.display = "table-row";
-////}
-//
-//function rate() {
-//    var id = document.getElementById('reservation').innerHTML;
-//    var rating = $('input:radio[name=rating]:checked').val();
-//    var complain = document.getElementById('complaint').value;
-//
-//    $.ajax({
-//        type: 'POST',
-//        url: './scripts/StaffScript.php',
-//        data: 'param_1=rate&param_2=' + id + '&param_3=' + rating + '&param_4=' + complain,
-//        dataType: 'json',
-//        cache: false,
-//        success: function(result) {
-//            if (result) {
-//                window.location = "staff.php";                
-//            }
-//        },
-//    });
-//}
-//
-//function toggleStaffOverlay() {
-//    ovrState = toggleOverlay(ovrState, "overlay");
-//}

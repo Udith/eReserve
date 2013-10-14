@@ -28,24 +28,24 @@ function reviewReservations($dbCon, $admin) {
         $status = ($requests[$i]['status']);
         $request = ($requests[$i]['id']);
 
-        if ($status == "a") {
+        if ($status == "a") {   //if the request is accepted
             $res = accept($dbCon, $request, $admin);
             if ($res) {
                 $message = getMessage($requests[$i]['name'], $requests[$i]['room'], $requests[$i]['date'], $requests[$i]['start'] . "-" . $requests[$i]['end'], $requests[$i]['purpose'], TRUE);
-                $email->sendEmail($requests[$i]['email'], "Reservation Request Review", $message);
+                $email->sendEmail($requests[$i]['email'], "Reservation Request Review", $message); //sends the email
             }
-        } else if ($status == "r") {
+        } else if ($status == "r") {    //if rejected
             $res = reject($dbCon, $request);            
             if ($res) {
                 $message = getMessage($requests[$i]['name'], $requests[$i]['room'], $requests[$i]['date'], $requests[$i]['start'] . "-" . $requests[$i]['end'], $requests[$i]['purpose'], FALSE);
-                $email->sendEmail($requests[$i]['email'], "Reservation Request Review", $message);
+                $email->sendEmail($requests[$i]['email'], "Reservation Request Review", $message); //sends the email
             }
         }
     }
     echo json_encode(TRUE);
 }
 
-function accept($dbCon, $request, $admin) {
+function accept($dbCon, $request, $admin) { //change the request from a request to a reservation
     $str = "INSERT INTO reservations (room_id,username,reserve_date,begin_time,end_time,reason,req_items,auth_by) 
             (SELECT room_id,username,request_date,begin_time,end_time,reason,req_items,'" . $admin . "' FROM requests
              WHERE request_id='" . $request . "')";
@@ -61,7 +61,7 @@ function accept($dbCon, $request, $admin) {
     return $result;
 }
 
-function reject($dbCon, $request) {
+function reject($dbCon, $request) { //remove the request from the system
     $str = "DELETE FROM requests WHERE request_id='" . $request . "'";
     $statement = $dbCon->prepare($str);
     $result = $statement->execute();
@@ -69,7 +69,7 @@ function reject($dbCon, $request) {
     return $result;
 }
 
-function getMessage($name, $room, $date, $time, $purpose, $accept) {
+function getMessage($name, $room, $date, $time, $purpose, $accept) {    //generate the email to be sent
     $retMessage = "Dear " . $name . ",\n";
     $retMessage = $retMessage . "Your request for\n";
     $retMessage = $retMessage . "Room ID: " . $room . "\n";

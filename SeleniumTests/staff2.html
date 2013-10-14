@@ -4,48 +4,59 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost/" />
-<title>Req2</title>
+<title>staff2</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Req2</td></tr>
+<tr><td rowspan="1" colspan="3">staff2</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/php/eReserve/request.php</td>
+	<td>/php/eReserve/staff.php</td>
 	<td></td>
 </tr>
 <tr>
-	<td>sendKeys</td>
-	<td>id=roomID</td>
-	<td>100010</td>
+	<td>verifyText</td>
+	<td>css=div.titleBar.staffTitle</td>
+	<td>Staff Piyal Samarawickrama</td>
 </tr>
 <tr>
-	<td>select</td>
-	<td>id=date</td>
-	<td>label=14</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>id=availCheck</td>
-	<td></td>
+	<td>verifyText</td>
+	<td>css=h2</td>
+	<td>Pending Reservations for Today</td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>css=b</td>
-	<td>Room Name:</td>
+	<td>css=td</td>
+	<td>100010</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>id=rName</td>
-	<td>Room Name: Seminar Room - CSE</td>
+	<td>css=td</td>
+	<td>100010</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=19</td>
+	<td></td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>css=#availability &gt; b</td>
-	<td>Room is Unavailable</td>
+	<td>css=#ovrHeader &gt; h2</td>
+	<td>Rate Reservation</td>
 </tr>
+<tr>
+	<td>click</td>
+	<td>id=closeOvr</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.titleBar.staffTitle</td>
+	<td>Staff Piyal Samarawickrama</td>
+</tr>
+
 </tbody></table>
 </body>
 </html>

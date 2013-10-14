@@ -77,42 +77,12 @@ function getSuggestions($dbCon) {
                     <td>' . $row[6] . '</td>
                   </tr>';
         }
-//        return;
+
     } else {
         echo 'No suitable Rooms Found! Please try without applying filters.';
     }
 
-//    $statement = $dbCon->prepare($str_req);
-//    $statement->execute();
-//
-//    if ($statement->rowCount() > 0) {
-//        echo 'No vacant rooms found for your requirements. The following rooms are not reserved but have pending requests.
-//            You can still request such a room';
-//        echo '<table>';
-//        echo '<tr>
-//                <th width="30px">Room ID</th>
-//                <th>Room Name</th>
-//                <th width="100px">Faculty</th>
-//                <th width="100px">Department</th>
-//                <th width="30px">Capacity</th>
-//                <th width="50px">A/C</th>
-//                <th width="50px">Computer Lab</th>
-//              </tr> ';
-//        while ($row = $statement->fetch(PDO::FETCH_NUM)) {
-//            echo '<tr>
-//                    <td>' . $row[0] . '</td>
-//                    <td style="text-align:left;">' . $row[1] . '</td>
-//                    <td>' . $row[2] . '</td>
-//                    <td>' . $row[3] . '</td>
-//                    <td>' . $row[4] . '</td>
-//                    <td>' . $row[5] . '</td>
-//                    <td>' . $row[6] . '</td>
-//                  </tr>';
-//        }
-//        echo '</table>';
-//    } else {
-//        echo 'No suitable Rooms Found! Please try without applying filters.';
-//    }
+
 }
 
 ?>

@@ -81,6 +81,7 @@ function isNumber(n) {
     return !isNaN(parseInt(n)) && isFinite(n);
 }
 
+//shows a request dialog box
 function requestReservation(id, name) {
 //    alert(id+":::::"+name);   
     resRoomID = id;
@@ -96,6 +97,7 @@ function toggleSuggestOverlay() {
     ovrState = toggleOverlay(ovrState, "overlay");
 }
 
+//make a request
 function makeRequest() {    //make a request for a room in a given date and timeslot
     document.getElementById("emptyPurpose").innerHTML = "";
     var purpose = document.getElementById("oPurpose").value;
