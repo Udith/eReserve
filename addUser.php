@@ -4,45 +4,49 @@ include './scripts/CheckCookie.php';
 include './scripts/MyDB.php';
 include './scripts/AddNew.php';
 
-$chc = new CheckCookie();
-$db = new Database();
-$dbCon = $db->getConnection();
-
-$username = "";
-$firstName = "";
-$lastName = "";
-$email = "";
-
-if (isset($_POST['submitted'])) {
-    $addScript = new AddNew($dbCon);
-    $fbMessage = $addScript->addUser();
-    $username = $_POST['userName'];
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $email = $_POST['email'];
-}
-
-session_start();
-if (!isset($_SESSION['username'])) {
-    $db = new Database();
-    $dbCon = $db->getConnection();
-    $result = $chc->checkCook($dbCon, "admin");
-
-    if ($result != "guest") {
-        $_SESSION['username'] = $result[0];
-        $_SESSION['first'] = $result[1];
-        $_SESSION['last'] = $result[2];
-        $_SESSION['type'] = $result[3];
-    }
-} else {
-    if ($_SESSION['type'] != "admin") {
-        header("Location:" . $chc->redirectPage($_SESSION['type']));
-    }
-}
-$usrname = $_SESSION['username'];
-$first_name = $_SESSION['first'];
-$last_name = $_SESSION['last'];
-$type = $_SESSION['type'];
+//$chc = new CheckCookie();
+//$db = new Database();
+//$dbCon = $db->getConnection();
+//
+//$username = "";
+//$firstName = "";
+//$lastName = "";
+//$email = "";
+//
+//if (isset($_POST['submitted'])) {
+//    $addScript = new AddNew($dbCon);
+//    $fbMessage = $addScript->addUser();
+//    $username = $_POST['userName'];
+//    $firstName = $_POST['firstName'];
+//    $lastName = $_POST['lastName'];
+//    $email = $_POST['email'];
+//}
+//
+//session_start();
+//if (!isset($_SESSION['username'])) {
+//    $db = new Database();
+//    $dbCon = $db->getConnection();
+//    $result = $chc->checkCook($dbCon, "admin");
+//
+//    if ($result != "guest") {
+//        $_SESSION['username'] = $result[0];
+//        $_SESSION['first'] = $result[1];
+//        $_SESSION['last'] = $result[2];
+//        $_SESSION['type'] = $result[3];
+//    }
+//} else {
+//    if ($_SESSION['type'] != "admin") {
+//        header("Location:" . $chc->redirectPage($_SESSION['type']));
+//    }
+//}
+//$usrname = $_SESSION['username'];
+//$first_name = $_SESSION['first'];
+//$last_name = $_SESSION['last'];
+//$type = $_SESSION['type'];
+$usrname = "";
+$first_name = "";
+$last_name = "";
+$type = "";
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
     <head>

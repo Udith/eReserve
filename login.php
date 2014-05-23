@@ -1,167 +1,115 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <?php
-include './scripts/LoginScript.php';
-include './scripts/CheckCookie.php';
+include_once './global.inc.php';
 include './scripts/MyDB.php';
 
-$db = new Database();
-$dbCon = $db->getConnection();
-$usr = "";
-if (isset($_POST['submitted'])) {
-    $logScript = new Login($dbCon);
-    $warnText = $logScript->authenticate();
-    $usr = $_POST['usrName'];
+session_start();
+if (isset($_SESSION['username'])) {
+    header("Location:./home.php");
 }
 
-session_start();
-$chc = new CheckCookie();
-if (isset($_SESSION['username'])) {
-    header("Location:" . $chc->redirectPage($_SESSION['type']));
-} else {
-    $result = $chc->checkCook($dbCon, "guest");
-
-    if ($result != "guest") {
-        $type = $result[3];
-        header("Location:" . $chc->redirectPage($type));
+if (isset($_GET['err'])) {
+    if ($_GET['err'] == "empty") {
+        $page_err = "Login failed! Empty username or password";
+    } else if ($_GET['err'] == "err_cred") {
+        $page_err = "Login failed! Wrong username or password";
     }
 }
+
+$page_title = "login";
+$page_name = "Welcome to eReserve";
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>eReserve</title>
-        <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
-        <!-- InstanceBeginEditable name="Attachments" -->
-        <link href="styles/loginStyle.css" rel="stylesheet" type="text/css" />
-        <link href="styles/mainTileStyle.css" rel="stylesheet" type="text/css" />
-        <script type='text/javascript' src='js/gen_validatorv31.js'></script> 
-        <!-- InstanceEndEditable -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
-    </head>
+<?php include './header.inc.php'; ?>
 
-    <body>	
-        <div class="container">
+<body>	
+    <?php include './navbar.php'; ?>
 
-            <div class="header">
-                <div class="logo" id="logo">
-                    <a href="home.php">
-                        <img src="images/logo.png" alt="eReserve Logo" name="ereserve_logo" id="ereserve_logo" />
-                    </a>      
-                </div>    
-                <div class="siteName">
-                    <span id="mainTitle">University Room Reservation System</span>
-                    <br />
-                    <span id="subTitle">University of Moratuwa</span>
-                </div>
+    <div class="container">
+        <h1>Hall Reservation System<small>&nbsp;-&nbsp;<? echo institute; ?></small></h1>
+        <hr>
+        <?php
+        if (isset($page_err)) {
+            ?>
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong><? echo $page_err; ?></strong>
             </div>
+        <?php } ?>
 
-            <div class="titleBar">
-                <!-- InstanceBeginEditable name="PageTitle" -->
-                Welcome
-                <!-- InstanceEndEditable -->		
-                <div id="logName">
-                    <!-- InstanceBeginEditable name="UserType" -->
-                    <a href="calendar.php">
-                        <button id="calendar" class="blueBtn" type="button">Reservation Calendar</button>
-                    </a>
-                    <!-- InstanceEndEditable -->
-                </div>    
-            </div>
+        <div class="row row-offcanvas row-offcanvas-right">
 
-            <div class="sidebar"> 
-                <!-- InstanceBeginEditable name="SideBar" -->                
-                <!-- InstanceEndEditable -->
-            </div>
+            <div class="col-xs-12 col-sm-9">
+                <p class="pull-right visible-xs">
+                    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+                </p>
+                <div class="jumbotron login-jumbotron">
+                    <h1>Login</h1>
+                    <form id="loginForm" class="form-horizontal" role="form" method="post" action="./php_scripts/loginScript.php">
+                        <div class="form-group">
+                            <label for="user" class="col-sm-2 control-label">Username</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="user" name="user" placeholder="username"
+                                       value="<?php
+                                       if (isset($_GET["namestr"])) {
+                                           echo $_GET["namestr"];
+                                       }
+                                       ?>"
+                                       >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-5">
+                                <input type="password" class="form-control" id="pass" name="pass" placeholder="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Log in</button>
+                            </div>
+                        </div>
+                    </form>                    
+                </div>          
+            </div><!--/span-->
 
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                <button type="button" class="btn btn-primary btn-lg" id="cal-btn">
+                    <span class="glyphicon glyphicon-calendar"></span>&nbsp;Reservation Calendar
+                </button>
+            </div><!--/span-->
+        </div><!--/row-->
 
-            <div class="content">
-                <!-- InstanceBeginEditable name="Content" -->
-                <table width="100%">
-                    <tr>
-                        <td>
-                            <img src="images/er_image1.png"  alt="" width="500" height="375" id="erImage"/>        
-                        </td>
-                        <td>
-                            <form id="loginForm" method="post" action="login.php">
-                                <table>
-                                    <tr><td><h1>Login</h1></td></tr>
-                                    <tr>
-                                        <th width="100px"></th><th width="200px"></th><th></th>
-                                    </tr>
-                                    <tr>
-                                        <td><label>Username</label></td>
-                                        <td><input type="text" id="usrName" name="usrName" class="logBox" value="<?php echo $usr; ?>"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><span id='loginForm_usrName_errorloc' class='error'></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label>Password</label></td>
-                                        <td><input type="password" id="passwd" name="passwd" class="logBox" /></td>
-                                    </tr> 
-                                    <tr>
-                                        <td></td>
-                                        <td><span id='loginForm_passwd_errorloc' class='error'></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input name="remember" type="checkbox" id="remember" form="loginForm" />
-                                            <label for="remember">remember me </label></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type="submit" id="loginBtn" value="login" class="greenBtn"/></td>
+        <hr>
+        <footer>
+            <?php include './footer.php'; ?>
+        </footer>
 
-                                    </tr>  
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <span id='warnText' class='error'>
-                                                <?php
-                                                //Shows the warning for wrong username or password
-                                                if (isset($warnText)) {
-                                                    echo $warnText;
-                                                }
-                                                ?>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <span id='noJs' class='error' style="padding:0px 10px;font-size: 16px;font-weight: bold;">
-                                            <noscript>Please enable JavaScript in your browser.</noscript>
-                                        </span>
-                                    </tr>
-                                </table>  
-                                <input type="hidden" name="submitted" value="1"/>
+    </div><!--/.container-->
 
-                            </form>  
+    <?php include './scripts.inc.php'; ?>;
+    <script type='text/javascript'>
+        //Validates the input values
+        var formValidator = new Validator("loginForm");
+        formValidator.EnableOnPageErrorDisplay();
+        formValidator.EnableMsgsTogether();
+        formValidator.addValidation("user", "req", "Please provide your username");
+        formValidator.addValidation("pass", "req", "Please provide your password");
 
-                            <script type='text/javascript'>
-                                //Validates the input values
-                                var frmvalidator = new Validator("loginForm");
-                                frmvalidator.EnableOnPageErrorDisplay();
-                                frmvalidator.EnableMsgsTogether();
-                                frmvalidator.addValidation("usrName", "req", "Please provide your username");
-                                frmvalidator.addValidation("passwd", "req", "Please provide your password");
-                            </script>
-                        </td>
-                    </tr>
-                </table>
-
-
-
-                <!-- InstanceEndEditable --> 	
-
-            </div> 
-
-        </div>
-        <!--
-        <div class="footer">    
-                <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="8" direction="left">
-                        Copyrights Reserved &nbsp;&nbsp;&nbsp;&nbsp; &copy;2013 Udith Arosha Gunaratna
-        </marquee>
-        </div>
-        -->
-    </body>
-    <!-- InstanceEnd --></html>
+        $(document).ready(function() {
+            $(document).on("click", "#cal-btn", function(e) {
+                e.preventDefault();
+                window.location.assign("calendar.php");
+            });
+        });
+    </script>
+</body>
+</html>

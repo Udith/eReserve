@@ -19,7 +19,7 @@ if (!isset($_SESSION['username'])) {
     }
 } else {
     if ($_SESSION['type'] != "user") {
-        header("Location:" . $chc->redirectPage($_SESSION['type']));
+//        header("Location:" . $chc->redirectPage($_SESSION['type']));
     }
 }
 $usrname = $_SESSION['username'];

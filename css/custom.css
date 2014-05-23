@@ -1,0 +1,57 @@
+/* 
+    Created on : May 23, 2014, 12:10:57 AM
+    Author     : Udith Gunaratna <uditharosha@gmail.com>
+*/
+footer{
+    padding: 10px 0;
+}
+
+.login-jumbotron{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.login-jumbotron h1{
+    font-size: 36px;
+    padding-bottom: 10px;
+    border-bottom: #aaa solid 1px;
+}
+
+.login-jumbotron h4>label{
+    font-weight: normal;
+}
+
+#loginForm{
+    margin-left: 20px;
+}
+
+.navbar-brand{
+    background-image: url(../images/rsz_2logo.png);
+    background-repeat: no-repeat;
+    min-width: 100px;
+    min-height: 50px;
+    background-position: center;
+    margin-right: 20px;
+}
+
+.navbar-nav>li {
+    color: #FFF;
+    font-size: 16px;
+    margin: 5px 0;
+    padding: 0 10px;
+}
+
+.navbar-nav>li.salutation {
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.navbar-nav.log-name-block{
+    float: right;
+}
+
+.navbar-nav.log-name-block #log-name{
+    margin-right: 10px;
+    color: #00cd27;
+}
