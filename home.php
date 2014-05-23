@@ -1,136 +1,108 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <?php
-include './scripts/CheckCookie.php';
+include_once './global.inc.php';
 include './scripts/MyDB.php';
-
-$chc = new CheckCookie();
 
 session_start();
 if (!isset($_SESSION['username'])) {
-    $db = new Database();
-    $dbCon = $db->getConnection();
-    $result = $chc->checkCook($dbCon, "user");
-
-    if ($result != "guest") {
-        $_SESSION['username'] = $result[0];
-        $_SESSION['first'] = $result[1];
-        $_SESSION['last'] = $result[2];
-        $_SESSION['type'] = $result[3];
-    }
-} else {
-    if ($_SESSION['type'] != "user") {
-//        header("Location:" . $chc->redirectPage($_SESSION['type']));
-    }
+    header("Location:./login.php");
 }
-$usrname = $_SESSION['username'];
-$first_name = $_SESSION['first'];
-$last_name = $_SESSION['last'];
-$type = $_SESSION['type'];
+
+$page_title = "home";
+$page_name = "Home";
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
+
+<html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>eReserve</title>
-        <link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
-        <!-- InstanceBeginEditable name="Attachments" -->
-        <link href="styles/homeStyle.css" rel="stylesheet" type="text/css" />
-        <link href="styles/mainTileStyle.css" rel="stylesheet" type="text/css" />
-        <!-- InstanceEndEditable -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
+        <?php include './header.inc.php'; ?>
     </head>
 
     <body>	
+        <?php include './navbar.php'; ?>
+
         <div class="container">
 
-            <div class="header">
-                <div class="logo" id="logo">
-                    <a href="home.php">
-                        <img src="images/logo.png" alt="eReserve Logo" name="ereserve_logo" id="ereserve_logo" />
-                    </a>      
-                </div>    
-                <div class="siteName">
-                    <span id="mainTitle">University Room Reservation System</span>
-                    <br />
-                    <span id="subTitle">University of Moratuwa</span>
-                </div>
-            </div>
+            <div class="row row-offcanvas row-offcanvas-right">
 
-            <div class="titleBar">
-                <!-- InstanceBeginEditable name="PageTitle" -->Home<!-- InstanceEndEditable -->		
-                <div id="logName">
-                    <!-- InstanceBeginEditable name="UserType" -->
-                    <?php
-                    if (isset($usrname)) {
-                        echo ' 
-                            	<a href="scripts/Logout.php">
-                                    <input type="submit" name="logout" id="logout" value="logout" class="redBtn"/>
-                		</a>
-                            ';
-                        echo $first_name . " " . $last_name;
-                    }
-                    ?>
-                    <!-- InstanceEndEditable -->
-                </div>    
-            </div>
+                <div class="col-xs-12 col-sm-9">
+                    <p class="pull-right visible-xs">
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+                    </p>
 
-            <div class="sidebar"> 
-                <!-- InstanceBeginEditable name="SideBar" --><!-- InstanceEndEditable -->
-            </div>
+                    <div class="row">
 
 
-            <div class="content">
-                <!-- InstanceBeginEditable name="Content" -->
-                <table>
-                    <tr>
-                        <td>
-                            <a href="calendar.php">
-                                <div class="tile" id="tile1">
-                                    <div class="tileIcon"><img src="images/calendar_icon.png" alt="calendar_icon"/></div>
-                                    <br/>
-                                    <div class="tileText">Reservation<br/> CALENDAR</div>
+                        <div class="col-6 col-sm-6 col-lg-5 text-center p0">
+                            <a href="calendar.php" style="text-decoration: none;">
+                                <div class="home-tile">
+                                    <img src="images/calendar_icon.png" alt="calendar icon" class="img-rounded" />
+                                    <h2>Reservation Calendar</h2>
                                 </div>
                             </a>
-                        </td>
-                        <td>
-                            <a href="request.php">
-                                <div class="tile" id="tile2">
-                                    <div class="tileIcon"><img src="images/request_icon.png" alt="request_icon"/></div>
-                                    <br/>
-                                    <div class="tileText">REQUEST<br/>Reservations</div>
+                        </div>
+
+
+                        <div class="col-6 col-sm-6 col-lg-5 text-center p0">
+                            <a href="request.php" style="text-decoration: none;">
+                                <div class="home-tile">
+                                    <img src="images/request_icon.png" alt="calendar icon" class="img-rounded" />
+                                    <h2>Request Reservations</h2>
                                 </div>
                             </a>
-                        </td>
-                        <td>
-                            <a href="cancel.php">
-                                <div class="tile" id="tile3">
-                                    <div class="tileIcon"><img src="images/cancel_icon.png" alt="cancel_icon"/></div>
-                                    <br/>
-                                    <div class="tileText">CANCEL<br/>Reservations</div>
+                        </div>
+
+
+                        <div class="col-6 col-sm-6 col-lg-5 text-center p0">
+                            <a href="cancel.php" style="text-decoration: none;">
+                                <div class="home-tile">
+                                    <img src="images/cancel_icon.png" alt="calendar icon" class="img-rounded" />
+                                    <h2>Cancel Reservations</h2>
                                 </div>
                             </a>
-                        </td>
-                        <td>
-                            <a href="my_history.php">
-                                <div class="tile" id="tile4">
-                                    <div class="tileIcon"><img src="images/history_icon.png" alt="history_icon"/></div>
-                                    <br/>
-                                    <div class="tileText">Reservation<br/> HISTORY</div>
-                                </div> 
+                        </div>
+
+
+                        <div class="col-6 col-sm-6 col-lg-5 text-center p0">
+                            <a href="my_history.php" style="text-decoration: none;">
+                                <div class="home-tile">
+                                    <img src="images/history_icon.png" alt="calendar icon" class="img-rounded" />
+                                    <h2>Reservation History</h2>
+                                </div>
                             </a>
-                        </td>
-                    </tr>                    
-                </table>
-                <!-- InstanceEndEditable --> 	
+                        </div>
 
-            </div> 
+                    </div><!--/row-->
+                </div><!--/span-->
 
-        </div>
-        <!--
-        <div class="footer">    
-                <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="8" direction="left">
-                        Copyrights Reserved &nbsp;&nbsp;&nbsp;&nbsp; &copy;2013 Udith Arosha Gunaratna
-        </marquee>
-        </div>
-        -->
+                <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">
+                            <span class="glyphicon glyphicon-home"></span>&nbsp;Home
+                        </a>
+                        <a href="calendar.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-calendar"></span>&nbsp;Reservation Calendar
+                        </a>
+                        <a href="request.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Request Reservations
+                        </a>
+                        <a href="cancel.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Cancel Reservations
+                        </a>
+                        <a href="my_history.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-time"></span>&nbsp;Reservation History
+                        </a>
+                        <!--                        <a href="#" class="list-group-item">Link</a>
+                                                <a href="#" class="list-group-item">Link</a>
+                                                <a href="#" class="list-group-item">Link</a>
+                                                <a href="#" class="list-group-item">Link</a>
+                                                <a href="#" class="list-group-item">Link</a>-->
+                    </div>
+                </div><!--/span-->
+            </div><!--/row-->
+        </div><!--/.container-->
+        <footer>
+            <?php include './footer.php'; ?>
+        </footer>
+        <?php include './scripts.inc.php'; ?>
     </body>
-    <!-- InstanceEnd --></html>
+</html>

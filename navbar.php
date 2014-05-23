@@ -15,11 +15,13 @@
             </ul>
             <ul class="nav navbar-nav log-name-block">       
                 <li>
-                    <?php 
-                        if(isset($_SESSION['username'])){
-                            echo '<span id="log-name">'.$_SESSION["first"].' '.$_SESSION["last"].'</span>';
-                            echo '<button type="button" class="btn btn-danger" id="logout-btn">logout</button>';
-                        }
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        ?>
+                        <span id="log-name"><? echo $_SESSION["first"] . ' ' . $_SESSION["last"]; ?></span>
+                        <button type="button" class="btn btn-danger" id="logout-btn" onclick="window.location.href = 'php_scripts/logout.php'">logout</button>
+                        <?php
+                    }
                     ?>
                 <li>
             </ul>
