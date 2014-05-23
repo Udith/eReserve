@@ -19,7 +19,7 @@
                     if (isset($_SESSION['username'])) {
                         ?>
                         <span id="log-name"><? echo $_SESSION["first"] . ' ' . $_SESSION["last"]; ?></span>
-                        <button type="button" class="btn btn-danger" id="logout-btn" onclick="window.location.href = 'php_scripts/logout.php'">logout</button>
+                        <button type="button" class="btn btn-danger" id="logout-btn" onclick="window.location.href = '<? echo SCRIPTS_DIR . "logout.php"; ?>'">logout</button>
                         <?php
                     }
                     ?>

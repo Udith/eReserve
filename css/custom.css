@@ -68,6 +68,7 @@ footer{
 
 .home-tile{
     border: #ddd solid 1px;
+    background-color: #fdfdfd;
     border-radius: 5px;
     margin: 10px;
     padding: 10px;

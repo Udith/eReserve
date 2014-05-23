@@ -47,7 +47,7 @@ $page_name = "Welcome to eReserve";
                                 <strong><? echo $page_err; ?></strong>
                             </div>
                         <?php } ?>
-                        <form id="loginForm" class="form-horizontal" role="form" method="post" action="./php_scripts/loginScript.php">
+                        <form id="loginForm" class="form-horizontal" role="form" method="post" action="<? echo SCRIPTS_DIR . 'loginScript.php'; ?>">
                             <div class="form-group">
                                 <label for="user" class="col-sm-2 control-label">Username</label>
                                 <div class="col-sm-5">

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <?php
 include_once './global.inc.php';
-include './scripts/MyDB.php';
 
 session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location:./login.php");
-}
+$req_level = 1;
+
+include SCRIPTS_DIR . 'access_ctrl.php';
 
 $page_title = "home";
 $page_name = "Home";
@@ -14,11 +13,11 @@ $page_name = "Home";
 
 <html>
     <head>
-        <?php include './header.inc.php'; ?>
+        <?php include ROOT_DIR . 'header.inc.php'; ?>
     </head>
 
     <body>	
-        <?php include './navbar.php'; ?>
+        <?php include ROOT_DIR . 'navbar.php'; ?>
 
         <div class="container">
 
@@ -91,18 +90,35 @@ $page_name = "Home";
                         <a href="my_history.php" class="list-group-item">
                             <span class="glyphicon glyphicon-time"></span>&nbsp;Reservation History
                         </a>
-                        <!--                        <a href="#" class="list-group-item">Link</a>
-                                                <a href="#" class="list-group-item">Link</a>
-                                                <a href="#" class="list-group-item">Link</a>
-                                                <a href="#" class="list-group-item">Link</a>
-                                                <a href="#" class="list-group-item">Link</a>-->
+                    </div>
+                    <div class="list-group">
+                        <?php if ($user_level >= 2) { ?>
+                            <a href="#" class="list-group-item">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Reservations for My Halls
+                            </a>
+                        <?php } ?>
+                        <?php if ($user_level >= 3) { ?>
+                        <a href="calendar.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-edit"></span>&nbsp;Manage Reservations
+                        </a>
+                        <?php } ?>
+                        <?php if ($user_level >= 3) { ?>
+                        <a href="request.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-time"></span>&nbsp;Hall Reservation History
+                        </a>
+                        <?php } ?>
+                        <?php if ($user_level >= 4) { ?>
+                        <a href="cancel.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-star"></span>&nbsp;Administrator
+                        </a>
+                        <?php } ?>
                     </div>
                 </div><!--/span-->
             </div><!--/row-->
         </div><!--/.container-->
         <footer>
-            <?php include './footer.php'; ?>
+            <?php include ROOT_DIR . 'footer.php'; ?>
         </footer>
-        <?php include './scripts.inc.php'; ?>
+        <?php include ROOT_DIR . 'scripts.inc.php'; ?>
     </body>
 </html>
