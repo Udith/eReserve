@@ -59,12 +59,18 @@ $page_name = "Welcome to eReserve";
                                            ?>"
                                            >
                                 </div>
+                                <label class="col-sm-2">
+                                    <span id='loginForm_user_errorloc' class='text-danger'></span>
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label for="pass" class="col-sm-2 control-label">Password</label>
                                 <div class="col-sm-5">
                                     <input type="password" class="form-control" id="pass" name="pass" placeholder="password">
                                 </div>
+                                <label class="col-sm-2">
+                                    <span id='loginForm_pass_errorloc' class='text-danger'></span>
+                                </label>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
@@ -85,8 +91,9 @@ $page_name = "Welcome to eReserve";
                 </div><!--/span-->
 
                 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                    <button type="button" class="btn btn-primary btn-lg" id="cal-btn">
-                        <span class="glyphicon glyphicon-calendar"></span>&nbsp;Reservation Calendar
+                    <button type="button" class="btn btn-warning btn-lg" id="cal-btn">
+                        <img src="images/calendar_icon.png" alt="calendar icon" class="img-rounded" /></br>
+                        Reservation Calendar
                     </button>
                 </div><!--/span-->
             </div><!--/row-->
@@ -103,8 +110,8 @@ $page_name = "Welcome to eReserve";
             var formValidator = new Validator("loginForm");
             formValidator.EnableOnPageErrorDisplay();
             formValidator.EnableMsgsTogether();
-            formValidator.addValidation("user", "req", "Please provide your username");
-            formValidator.addValidation("pass", "req", "Please provide your password");
+            formValidator.addValidation("user", "req", "required");
+            formValidator.addValidation("pass", "req", "required");
 
             $(document).ready(function() {
                 $(document).on("click", "#cal-btn", function(e) {

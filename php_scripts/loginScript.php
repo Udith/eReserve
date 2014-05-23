@@ -43,6 +43,10 @@ if ($isAuthentic) {
 
     header("Location:../home.php");
 }
+else{
+    header("location: ../login.php?err=err_cred&namestr=$userName");
+    exit();
+}
 
 //
 //    function setTheCookie($usrname, $remember) {   //sets the cookie for the user
