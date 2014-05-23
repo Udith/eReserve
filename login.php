@@ -27,15 +27,7 @@ $page_name = "Welcome to eReserve";
     <div class="container">
         <h1>Hall Reservation System<small>&nbsp;-&nbsp;<? echo institute; ?></small></h1>
         <hr>
-        <?php
-        if (isset($page_err)) {
-            ?>
-            <div class="alert alert-danger alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong><? echo $page_err; ?></strong>
-            </div>
-        <?php } ?>
-
+        
         <div class="row row-offcanvas row-offcanvas-right">
 
             <div class="col-xs-12 col-sm-9">
@@ -44,6 +36,14 @@ $page_name = "Welcome to eReserve";
                 </p>
                 <div class="jumbotron login-jumbotron">
                     <h1>Login</h1>
+                    <?php
+                    if (isset($page_err)) {
+                        ?>
+                        <div class="alert alert-danger alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong><? echo $page_err; ?></strong>
+                        </div>
+                    <?php } ?>
                     <form id="loginForm" class="form-horizontal" role="form" method="post" action="./php_scripts/loginScript.php">
                         <div class="form-group">
                             <label for="user" class="col-sm-2 control-label">Username</label>
@@ -95,7 +95,7 @@ $page_name = "Welcome to eReserve";
 
     </div><!--/.container-->
 
-    <?php include './scripts.inc.php'; ?>;
+    <?php include './scripts.inc.php'; ?>
     <script type='text/javascript'>
         //Validates the input values
         var formValidator = new Validator("loginForm");
