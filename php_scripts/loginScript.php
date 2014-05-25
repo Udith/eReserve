@@ -1,6 +1,6 @@
 <?php
 
-include '../classes/DB.php';
+include_once '../global.inc.php';
 include '../classes/Hasher.php';
 
 $userName = $_POST["user"];
@@ -20,33 +20,55 @@ if (empty($userName) || empty($password)) {
 
 //authenticate password
 $hasher = new Hasher();
-$db = new DB();
 
-$userDetails = $db->select("users", "username='$userName'", TRUE);
+$userDetails = UserHelper::getUser($userName);
 
 if ($userDetails == NULL) {
     header("location: ../login.php?err=err_cred&namestr=$userName");
     exit();
 }
 
-$isAuthentic = $hasher->verifyPass($password, $userDetails["password"]);
+$isAuthentic = $hasher->verifyPass($password, UserHelper::getHashedPass($userName));
 
 if ($isAuthentic) {
     /*
      * if authentic, starts the session and redirects to the home page
      */
     session_start();
-    $_SESSION['username'] = $userDetails["username"];
-    $_SESSION['first'] = $userDetails["first_name"];
-    $_SESSION['last'] = $userDetails["last_name"];
-    $_SESSION['level'] = $userDetails["level"];
-
+    $_SESSION['user'] = $userDetails;
     header("Location:../home.php");
 }
 else{
     header("location: ../login.php?err=err_cred&namestr=$userName");
     exit();
 }
+
+/////////
+//$userDetails = $db->select("users", "username='$userName'", TRUE);
+//
+//if ($userDetails == NULL) {
+//    header("location: ../login.php?err=err_cred&namestr=$userName");
+//    exit();
+//}
+//
+//$isAuthentic = $hasher->verifyPass($password, $userDetails["password"]);
+//
+//if ($isAuthentic) {
+//    /*
+//     * if authentic, starts the session and redirects to the home page
+//     */
+//    session_start();
+//    $_SESSION['username'] = $userDetails["username"];
+//    $_SESSION['first'] = $userDetails["first_name"];
+//    $_SESSION['last'] = $userDetails["last_name"];
+//    $_SESSION['level'] = $userDetails["level"];
+//
+//    header("Location:../home.php");
+//}
+//else{
+//    header("location: ../login.php?err=err_cred&namestr=$userName");
+//    exit();
+//}
 
 //
 //    function setTheCookie($usrname, $remember) {   //sets the cookie for the user

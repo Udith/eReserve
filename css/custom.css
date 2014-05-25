@@ -36,9 +36,10 @@ footer{
 }
 
 .navbar-brand{
-    background-image: url(../images/rsz_2logo.png);
+    background-image: url(../images/logo.png);
+    /*background-image: url(../images/logo_old.png);*/
     background-repeat: no-repeat;
-    min-width: 100px;
+    min-width: 120px;
     min-height: 50px;
     background-position: center;
     margin-right: 20px;
@@ -80,3 +81,25 @@ footer{
     background-color: #fafafa;
 }
 
+a.list-group-item-disabled{
+    pointer-events: none;
+    color: #aaa;
+    background-color: #eee;
+}
+
+table.dataTable{
+    border-collapse: collapse;
+}
+
+.dataTables_wrapper table.dataTable th{
+    background-color: #eee;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    padding: 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    background: transparent;
+    border-color: transparent
+}

@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"></a>
+            <a class="navbar-brand" href="index.php"></a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">                
@@ -16,9 +16,9 @@
             <ul class="nav navbar-nav log-name-block">       
                 <li>
                     <?php
-                    if (isset($_SESSION['username'])) {
+                    if (isset($_SESSION['user']->username)) {
                         ?>
-                        <span id="log-name"><? echo $_SESSION["first"] . ' ' . $_SESSION["last"]; ?></span>
+                    <span id="log-name"><? echo $_SESSION["user"]->firstName . ' ' . $_SESSION["user"]->lastName; ?></span>
                         <button type="button" class="btn btn-danger" id="logout-btn" onclick="window.location.href = '<? echo SCRIPTS_DIR . "logout.php"; ?>'">logout</button>
                         <?php
                     }

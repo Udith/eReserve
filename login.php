@@ -4,7 +4,7 @@ include_once './global.inc.php';
 include './scripts/MyDB.php';
 
 session_start();
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['user']->username)) {
     header("Location:./home.php");
 }
 

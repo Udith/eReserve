@@ -21,7 +21,7 @@ class DB {
 //        $this->connection->
 //    }
 
-    public function connect() {
+    private function connect() {
         $this->db = new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_user, $this->db_pass);
 
         return TRUE;

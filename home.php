@@ -93,7 +93,7 @@ $page_name = "Home";
                     </div>
                     <div class="list-group">
                         <?php if ($user_level >= 2) { ?>
-                            <a href="#" class="list-group-item">
+                            <a href="home.php" class="list-group-item">
                                 <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Reservations for My Halls
                             </a>
                         <?php } ?>
