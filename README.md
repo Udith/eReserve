@@ -1,7 +1,3 @@
-This is a web based Room Reservation System for a University. 
-     /\  _`\                                                  
-   __\ \ \L\ \     __    ____     __   _ __   __  __     __   
- /'__`\ \ ,  /   /'__`\ /',__\  /'__`\/\`'__\/\ \/\ \  /'__`\ 
-/\  __/\ \ \\ \ /\  __//\__, `\/\  __/\ \ \/ \ \ \_/ |/\  __/ 
-\ \____\\ \_\ \_\ \____\/\____/\ \____\\ \_\  \ \___/ \ \____\
- \/____/ \/_/\/ /\/____/\/___/  \/____/ \/_/   \/__/   \/____/
+![alt tag](logo.png)
+
+A web based Hall Reservation System for a University
