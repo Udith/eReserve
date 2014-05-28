@@ -54,5 +54,21 @@ class DB {
             return $this->processRowSet($result);
         }
     }
+    
+    public function join($table1, $table2, $onfield1, $onField2, $where = TRUE, $singleRow = FALSE) {
+        $sql = "SELECT * FROM $table1 JOIN $table2 ON $table1.$onfield1 = $table2.$onField2 WHERE $where";
+        
+        $result = $this->db->query($sql);
+
+        if (!$result) {
+            return FALSE;
+        }
+
+        if ($singleRow) {
+            return $this->processRowSet($result, TRUE);
+        } else {
+            return $this->processRowSet($result);
+        }
+    }
 
 }

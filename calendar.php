@@ -33,28 +33,17 @@ $page_name = "Reservation Calendar";
                         <table id="calendar-table" class="table table-hover cell-border table-bordered" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
+                                    <th>Hall ID</th>
                                     <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Department</th>
+                                    <th>Faculty</th>
+                                    <th>Capacity</th>
+                                    <th>A/C</th>
+                                    <th>Computer Lab</th>
                                 </tr>
                             </thead>
-
-                            <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                            </tfoot>
-
-                            <tbody>
-                                <tr>
+                            <!--<tbody>-->
+<!--                                <tr>
                                     <td>Tiger Nixon</td>
                                     <td>System Architect</td>
                                     <td>Edinburgh</td>
@@ -509,8 +498,8 @@ $page_name = "Reservation Calendar";
                                     <td>27</td>
                                     <td>2011/01/25</td>
                                     <td>$112,000</td>
-                                </tr>
-                            </tbody>
+                                </tr>-->
+                            <!--</tbody>-->
                         </table>
                     </div>
                 </div><!--/span-->
