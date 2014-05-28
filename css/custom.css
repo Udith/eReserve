@@ -315,6 +315,10 @@ a.list-group-item-disabled{
     border-color: transparent;
 }
 
+#calendar-table tr:hover{
+    cursor: pointer;
+}
+
 #calendar-table tr td:nth-child(5){
     text-align: right;
 }
