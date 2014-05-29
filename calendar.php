@@ -32,7 +32,7 @@ $page_name = "Reservation Calendar";
                     <div>
                         <table id="calendar-table" class="table table-hover cell-border table-bordered" cellspacing="0" width="100%">
                             <thead>
-                                <tr>
+                                <tr class="col-header">
                                     <th>Hall ID</th>
                                     <th>Name</th>
                                     <th>Department</th>
@@ -43,7 +43,7 @@ $page_name = "Reservation Calendar";
                                 </tr>
                             </thead>
 <!--                            <tfoot>
-                                <tr>
+                                <tr class="col-header">
                                     <th>Hall ID</th>
                                     <th>Name</th>
                                     <th>Department</th>
@@ -54,6 +54,32 @@ $page_name = "Reservation Calendar";
                                 </tr>
                             </tfoot>-->
                         </table>
+                    </div>
+                    <div class="modal fade" id="calendar-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Reservation Details</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" id="hall-id"/>
+                                    <div class='col-lg-5 input-group date' id='calendar-datepicker' data-date-format="YYYY-MM-DD">                                        
+                                        <input type='button' class="form-control"/>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <?php if (isset($_SESSION['user']->username)) { ?>
+                                        <button type="button" class="btn btn-success">Request Reservation</button>
+                                    <?php } else { ?>
+                                        <button type="button" class="btn btn-success disabled">Request Reservation</button>
+                                    <?php } ?>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div><!--/span-->
 
@@ -124,25 +150,7 @@ $page_name = "Reservation Calendar";
                     <?php } ?>
                 </div><!--/span-->
             </div><!--/row-->
-            <div class="modal fade" id="calendar-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Reservation Details</h4>
-                        </div>
-                        <div class="modal-body">
 
-                        </div>
-                        <div class="modal-footer">
-                            <?php if (isset($_SESSION['user']->username)) { ?>
-                                <button type="button" class="btn btn-primary">Request Reservation</button>
-                            <?php } ?>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div><!--/.container-->
 
         <div style="min-height: 50px;">

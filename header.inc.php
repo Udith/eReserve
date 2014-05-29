@@ -5,5 +5,6 @@
 <link href="css/offcanvas.css" rel="stylesheet" type="text/css"/>
 <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 <link href="css/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css"/>
 <link href="css/custom.css" rel="stylesheet" type="text/css"/>
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>

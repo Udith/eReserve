@@ -1,0 +1,11 @@
+{
+    "data": [{
+            "id": "70297",
+            "name": "ligula suspendisse ornare",
+            "department": "Department_5_2",
+            "faculty": "Faculty_5",
+            "capacity": 643,
+            "ac": true,
+            "com_lab": false
+        }]
+} 
