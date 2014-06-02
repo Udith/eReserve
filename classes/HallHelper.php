@@ -5,7 +5,7 @@ class HallHelper {
     public static function getHall($id) {
         $db = new DB();
         $hallArr = $db->join("halls", "departments", "dept_name", "dept_name", "hall_id='$id'", TRUE);
-
+        
         if (count($hallArr) == 0) {
             return NULL;
         }
@@ -20,10 +20,6 @@ class HallHelper {
     public static function getAllHalls() {
         $db = new DB();
         $hallArr = $db->join("halls", "departments", "dept_name", "dept_name", 1);
-
-        if (count($hallArr) == 0) {
-            return NULL;
-        }
 
         $halls = array();
         foreach ($hallArr as $currentHall) {

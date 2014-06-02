@@ -30,7 +30,7 @@ $page_name = "Reservation Calendar";
                     </p>
 
                     <div>
-                        <table id="calendar-table" class="table table-hover cell-border table-bordered" cellspacing="0" width="100%">
+                        <table id="calendar-table" class="table table-hover cell-border" cellspacing="0" width="100%">
                             <thead>
                                 <tr class="col-header">
                                     <th>Hall ID</th>
@@ -63,16 +63,25 @@ $page_name = "Reservation Calendar";
                                     <h4 class="modal-title">Reservation Details</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <input type="hidden" id="hall-id"/>
+                                    <h4>
+                                            <span id="hall-name"></span>&nbsp;
+                                            (<span id="hall-id"></span>)
+                                    </h4>
+                                    <hr/>
+                                    <h5>Date</h5>
                                     <div class='col-lg-5 input-group date' id='calendar-datepicker' data-date-format="YYYY-MM-DD">                                        
                                         <input type='button' class="form-control"/>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                         </span>
                                     </div>
+                                    <br>
+                                    <div>
+                                        <table id="reserve-table" class="table table-bordered table-condensed" cellspacing="0" width="100%"></table>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <?php if (isset($_SESSION['user']->username)) { ?>
-                                        <button type="button" class="btn btn-success">Request Reservation</button>
+                                        <button type="button" class="btn btn-success" id="request-res-btn">Request Reservation</button>
                                     <?php } else { ?>
                                         <button type="button" class="btn btn-success disabled">Request Reservation</button>
                                     <?php } ?>

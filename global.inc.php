@@ -8,5 +8,7 @@ include_once 'classes/User.php';
 include_once 'classes/UserHelper.php';
 include_once 'classes/Hall.php';
 include_once 'classes/HallHelper.php';
+include_once 'classes/Reservation.php';
+include_once 'classes/ReservationHelper.php';
 
 require_once 'classes/DB.php';

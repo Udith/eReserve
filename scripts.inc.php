@@ -6,3 +6,4 @@
 <script src="js/dataTables.bootstrap.js" type="text/javascript"></script>
 <script src="js/moment.js" type="text/javascript"></script>
 <script src="js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<script src="js/utils.js" type="text/javascript"></script>
