@@ -12,8 +12,9 @@ class Reservation {
     public $req_items;
     public $auth_by;
     public $feedback;
+    public $hall_details;
 
-    function __construct($reserve_id, $hall_id, $username, $date, $begin_time, $end_time, $reason, $req_items, $auth_by, $feedback) {
+    function __construct($reserve_id, $hall_id, $username, $date, $begin_time, $end_time, $reason, $req_items, $auth_by, $feedback, $hall_details = "") {
         $this->reserve_id = isset($reserve_id) ? $reserve_id : "";
         $this->hall_id = isset($hall_id) ? $hall_id : "";
         $this->username = isset($username) ? $username : "";
@@ -24,6 +25,7 @@ class Reservation {
         $this->req_items = isset($req_items) ? $req_items : "";
         $this->auth_by = isset($auth_by) ? $auth_by : "";
         $this->feedback = isset($feedback) ? $feedback : "";
+        $this->hall_details = isset($hall_details) ? $hall_details : "";
     }
 
 }

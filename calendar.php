@@ -42,17 +42,18 @@ $page_name = "Reservation Calendar";
                                     <th>Computer Lab</th>
                                 </tr>
                             </thead>
-<!--                            <tfoot>
+
+                            <tfoot>
                                 <tr class="col-header">
-                                    <th>Hall ID</th>
-                                    <th>Name</th>
-                                    <th>Department</th>
-                                    <th>Faculty</th>
-                                    <th>Capacity</th>
-                                    <th>A/C</th>
-                                    <th>Computer Lab</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="selFilter"></th>
+                                    <th class="selFilter"></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
-                            </tfoot>-->
+                            </tfoot>
                         </table>
                     </div>
                     <div class="modal fade" id="calendar-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -64,8 +65,8 @@ $page_name = "Reservation Calendar";
                                 </div>
                                 <div class="modal-body">
                                     <h4>
-                                            <span id="hall-name"></span>&nbsp;
-                                            (<span id="hall-id"></span>)
+                                        <span id="hall-name"></span>&nbsp;
+                                        (<span id="hall-id"></span>)
                                     </h4>
                                     <hr/>
                                     <h5>Date</h5>

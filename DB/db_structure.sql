@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
 
 CREATE TABLE IF NOT EXISTS `reservations` (
   `reserve_id` int(10) NOT NULL AUTO_INCREMENT,
-  `room_id` int(6) NOT NULL,
+  `hall_id` int(6) NOT NULL,
   `username` varchar(10) NOT NULL,
   `reserve_date` date NOT NULL,
   `begin_time` time NOT NULL,
@@ -78,12 +78,12 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `reason` text NOT NULL,
   `req_items` text,
   `auth_by` varchar(10) NOT NULL,
-  `feebback` int(2) DEFAULT NULL,
+  `feedback` int(2) DEFAULT NULL,
   PRIMARY KEY (`reserve_id`),
-  KEY `room_id` (`room_id`),
+  KEY `room_id` (`hall_id`),
   KEY `username` (`username`),
   KEY `auth_by` (`auth_by`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `staff` (
   `username` varchar(10) NOT NULL DEFAULT '',
@@ -102,34 +102,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `reputation` int(5) DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-ALTER TABLE `admins`
-  ADD CONSTRAINT `admins_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `halls` (`hall_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `admins_ibfk_2` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE;
-
-ALTER TABLE `complaints`
-  ADD CONSTRAINT `complaints_ibfk_1` FOREIGN KEY (`reserve_id`) REFERENCES `reservations` (`reserve_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `complaints_ibfk_2` FOREIGN KEY (`made_by`) REFERENCES `users` (`username`) ON DELETE SET NULL;
-
-ALTER TABLE `departments`
-  ADD CONSTRAINT `departments_ibfk_1` FOREIGN KEY (`faculty_name`) REFERENCES `faculties` (`faculty_name`);
-
-ALTER TABLE `halls`
-  ADD CONSTRAINT `halls_ibfk_1` FOREIGN KEY (`dept_name`) REFERENCES `departments` (`dept_name`) ON DELETE SET NULL;
-
-ALTER TABLE `requests`
-  ADD CONSTRAINT `requests_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `halls` (`hall_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `requests_ibfk_2` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE;
-
-ALTER TABLE `reservations`
-  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `halls` (`hall_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE,
-  ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`auth_by`) REFERENCES `users` (`username`) ON DELETE CASCADE;
-
-ALTER TABLE `staff`
-  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `halls` (`hall_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `staff_ibfk_2` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

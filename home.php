@@ -31,40 +31,40 @@ $page_name = "Home";
                     <div class="row">
 
 
-                        <div class="col-6 col-sm-6 col-lg-5 text-center p0">
+                        <div class="col-6 col-sm-6 col-lg-5 text-center p0 w50">
                             <a href="calendar.php" style="text-decoration: none;">
-                                <div class="home-tile">
-                                    <img src="images/calendar_icon.png" alt="calendar icon" class="img-rounded" />
-                                    <h2>Reservation Calendar</h2>
+                                <div class="home-tile slow-trans">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                    <h2>Reservation Calendar</h2>                                    
                                 </div>
                             </a>
                         </div>
 
 
-                        <div class="col-6 col-sm-6 col-lg-5 text-center p0">
+                        <div class="col-6 col-sm-6 col-lg-5 text-center p0 w50">
                             <a href="request.php" style="text-decoration: none;">
-                                <div class="home-tile">
-                                    <img src="images/request_icon.png" alt="calendar icon" class="img-rounded" />
+                                <div class="home-tile slow-trans">
+                                    <span class="glyphicon glyphicon-ok"></span>
                                     <h2>Request Reservations</h2>
                                 </div>
                             </a>
                         </div>
 
 
-                        <div class="col-6 col-sm-6 col-lg-5 text-center p0">
+                        <div class="col-6 col-sm-6 col-lg-5 text-center p0 w50">
                             <a href="cancel.php" style="text-decoration: none;">
-                                <div class="home-tile">
-                                    <img src="images/cancel_icon.png" alt="calendar icon" class="img-rounded" />
+                                <div class="home-tile slow-trans">
+                                    <span class="glyphicon glyphicon-remove"></span>
                                     <h2>Cancel Reservations</h2>
                                 </div>
                             </a>
                         </div>
 
 
-                        <div class="col-6 col-sm-6 col-lg-5 text-center p0">
+                        <div class="col-6 col-sm-6 col-lg-5 text-center p0 w50">
                             <a href="my_history.php" style="text-decoration: none;">
-                                <div class="home-tile">
-                                    <img src="images/history_icon.png" alt="calendar icon" class="img-rounded" />
+                                <div class="home-tile slow-trans">
+                                    <span class="glyphicon glyphicon-time"></span>
                                     <h2>Reservation History</h2>
                                 </div>
                             </a>
@@ -78,16 +78,16 @@ $page_name = "Home";
                         <a href="#" class="list-group-item active">
                             <span class="glyphicon glyphicon-home"></span>&nbsp;Home
                         </a>
-                        <a href="calendar.php" class="list-group-item">
+                        <a href="calendar.php" class="list-group-item slow-trans">
                             <span class="glyphicon glyphicon-calendar"></span>&nbsp;Reservation Calendar
                         </a>
-                        <a href="request.php" class="list-group-item">
+                        <a href="request.php" class="list-group-item slow-trans">
                             <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Request Reservations
                         </a>
-                        <a href="cancel.php" class="list-group-item">
+                        <a href="cancel.php" class="list-group-item slow-trans">
                             <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Cancel Reservations
                         </a>
-                        <a href="my_history.php" class="list-group-item">
+                        <a href="my_history.php" class="list-group-item slow-trans">
                             <span class="glyphicon glyphicon-time"></span>&nbsp;Reservation History
                         </a>
                     </div>

@@ -6,7 +6,7 @@ if(isset($_POST['hall_id'])){
     $hall_id = $_POST['hall_id'];
 }
 
-//sleep(3);
+//echo json_encode(array("halls" => array()));
 
 if(isset($hall_id)){
     $hall = HallHelper::getHall($hall_id);
@@ -18,6 +18,5 @@ if(isset($hall_id)){
 }
 else{
     $halls = HallHelper::getAllHalls();
-//    echo json_encode(array("halls" => array()));
     echo json_encode(array("halls" => $halls));
 }

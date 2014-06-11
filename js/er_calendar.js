@@ -60,7 +60,7 @@ $(document).ready(function() {
             "data": function() {
                 return {
                     "hall_id": hallId,
-                    "reserve_date": resDate 
+                    "reserve_date": resDate
                 };
             },
             "type": "POST",
@@ -79,8 +79,9 @@ $(document).ready(function() {
 //    $.ajax({
 //        url: "php_scripts/reservations.get.php",
 //        type: 'POST',
-//        data: "hall_id=5504&reserve_date=2014-08-01",
+//        data: "hall_id=100100&reserve_date=2014-08-01",
 //        success: function(data, textStatus, jqXHR) {
+//            console.log(textStatus);
 //            console.log(data);
 //        }
 //    });
@@ -94,7 +95,7 @@ $(document).ready(function() {
     });
 
     //show reservations dialog
-    function showReservations() {        
+    function showReservations() {
         resDate = formatDate(new Date($("#calendar-datepicker").data("DateTimePicker").getDate()));
         resTable.ajax.reload();
         $('#calendar-modal').modal('show');
