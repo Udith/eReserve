@@ -350,7 +350,9 @@ a.list-group-item-disabled{
 }
 
 #calendar-table tr td:nth-child(6),
-#calendar-table tr td:nth-child(7){
+#calendar-table tr td:nth-child(7),
+#pend-req-table tr td:nth-child(6),
+#pend-res-table tr td:nth-child(6){
     text-align: center;
 }
 
@@ -395,3 +397,11 @@ a.list-group-item-disabled{
     border-radius: 0 0 5px 5px;
 }
 
+.tab-pane{
+    padding-top: 20px;
+}
+
+.alert .glyphicon{
+    vertical-align: bottom;
+    font-size: 150%;
+}

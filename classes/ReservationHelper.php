@@ -48,4 +48,15 @@ class ReservationHelper {
         return $reservations;
     }
 
+    public static function deleteRes($reserve_id) {
+        $db = new DB();
+        $result = $db->remove("reservations", "reserve_id='$reserve_id'");
+
+        if ($result) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
 }

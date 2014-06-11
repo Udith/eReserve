@@ -1,133 +1,129 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <?php
-include './scripts/CheckCookie.php';
-include './scripts/MyDB.php';
-
-$chc = new CheckCookie();
+include_once './global.inc.php';
 
 session_start();
-if (!isset($_SESSION['username'])) {
-    $db = new Database();
-    $dbCon = $db->getConnection();
-    $result = $chc->checkCook($dbCon, "user");
+$req_level = 1;
 
-    if ($result != "guest") {
-        $_SESSION['username'] = $result[0];
-        $_SESSION['first'] = $result[1];
-        $_SESSION['last'] = $result[2];
-        $_SESSION['type'] = $result[3];
-    }
-} else {
-    if ($_SESSION['type'] != "user") {
-        header("Location:" . $chc->redirectPage($_SESSION['type']));
-    }
-}
-$usrname = $_SESSION['username'];
-$first_name = $_SESSION['first'];
-$last_name = $_SESSION['last'];
-$type = $_SESSION['type'];
+include SCRIPTS_DIR . 'access_ctrl.php';
+
+$page_title = "cancel";
+$page_name = "Cancel Requests & Reservations";
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/site_template.dwt" codeOutsideHTMLIsLocked="false" -->
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>eReserve</title>
-	<link href="styles/mainstyle.css" rel="stylesheet" type="text/css" />
-	<!-- InstanceBeginEditable name="Attachments" -->
-        <link href="styles/navMenu.css" rel="stylesheet" type="text/css" />
-        <link href="styles/cancelStyle.css" rel="stylesheet" type="text/css" />
-        <script src="js/jquery-1.10.2.min.js" ></script>
-        <script src="js/common.js" ></script>
-        <script src="js/cancel.js" ></script>
-        <!-- InstanceEndEditable -->
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>	
-	</head>
+<html>
+    <head>
+        <?php include ROOT_DIR . 'header.inc.php'; ?>	
+    </head>
 
-	<body>	
-		<div class="container">
-        
-  			<div class="header">
-  				<div class="logo" id="logo">
-                	<a href="home.php">
-   	  					<img src="images/logo.png" alt="eReserve Logo" name="ereserve_logo" id="ereserve_logo" />
-                    </a>      
-    			</div>    
-    			<div class="siteName">
-    				<span id="mainTitle">University Room Reservation System</span>
-        			<br />
-    	    		<span id="subTitle">University of Moratuwa</span>
-    			</div>
-  			</div>
-  
-  			<div class="titleBar">
-			<!-- InstanceBeginEditable name="PageTitle" -->Cancel Reservations<!-- InstanceEndEditable -->		
-    			<div id="logName">
-                <!-- InstanceBeginEditable name="UserType" -->
-                    <?php
-                    if(isset($usrname)){
-                        echo ' 
-                            	<a href="scripts/Logout.php">
-                                    <input type="submit" name="logout" id="logout" value="logout" class="redBtn"/>
-                		</a>
-                            ';
-                        echo $first_name . " " . $last_name;
-                    }
-                    ?>
-                    <!-- InstanceEndEditable -->
-    			</div>    
-  			</div>
-  
-  			<div class="sidebar"> 
-             	<!-- InstanceBeginEditable name="SideBar" -->
-                <div id="navigation">
-                    <ul>
-                        <a href="home.php"><li>Home</li></a>
-                        <a href="calendar.php"><li>Reservation Calendar</li></a>
-                        <a href="request.php"><li>Request Reservations</li></a>
-                        <a href="my_history.php"><li>Reservation History</li></a>
-                    </ul>
-                </div>
-                <!-- InstanceEndEditable -->
-  			</div>
-  			
-  	
-  			<div class="content">
-				<!-- InstanceBeginEditable name="Content" -->
-                <div id="reservations">
-                    <h2>Reservations</h2>
-                    <hr/>
-                    <table id="reserveTable" class="dataTable" cellspacing="0"></table>                
-                </div>
+    <body>	
+        <?php include ROOT_DIR . 'navbar.php'; ?>
 
-                <div id="requests">
-                    <h2>Requests</h2>
-                    <hr/>
-                    <table id="requestTable" class="dataTable" cellspacing="0"></table>
-                </div>
+        <div class="container">
 
-                <div class="overlay" id="overlay">
-                    <div id="confirm">
-                        <input id="opID" type="hidden" value="0"/>
-                        <input id="opType" type="hidden" value="0"/>
-                        <div id="ovrHeader">                         
-                            <h2>Confirm</h2>
-                        </div>
-                        <hr/>                    
-                        <div id="confirmBody"></div>
+            <div class="row row-offcanvas row-offcanvas-right">
+
+                <div class="col-xs-12 col-sm-9">
+                    <p class="pull-right visible-xs">
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+                    </p>
+                    <div id="alert-holder"></div>
+                    <div>
+                        <ul class="nav nav-tabs">
+                            <li><a href="#requests" data-toggle="tab"><h3>Pending Requests</h3></a></li>
+                            <li class="active"><a href="#reservations" data-toggle="tab"><h3>Pending Reservations</h3></a></li>
+                        </ul>
                     </div>
-                </div>                
-            </div>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="requests">
+                            <table id="pend-req-table" class="table cell-border" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr class="col-header">
+                                        <th>Date</th>
+                                        <th>Hall ID</th>
+                                        <th>Reason</th>                                    
+                                        <th>From</th>
+                                        <th>To</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="tab-pane active" id="reservations">
+                            <table id="pend-res-table" class="table cell-border" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr class="col-header">
+                                        <th>ID</th>
+                                        <th>Hall ID</th>
+                                        <th>Reason</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <!--                    <div>
+                    
+                                            
+                                        </div>                    -->
+                </div><!--/span-->
 
-            <!-- InstanceEndEditable --> 	
-  			    
-		    </div> 
-            
-	</div>
-		<!--
-		<div class="footer">    
-  			<marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="8" direction="left">
-  				Copyrights Reserved &nbsp;&nbsp;&nbsp;&nbsp; &copy;2013 Udith Arosha Gunaratna
-    		</marquee>
-		</div>
- 		-->
-	</body>
-<!-- InstanceEnd --></html>
+                <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
+                    <div class="list-group">
+                        <a href="home.php" class="list-group-item"> 
+                            <span class="glyphicon glyphicon-home"></span>&nbsp;Home
+                        </a>
+                        <a href="calendar.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-calendar"></span>&nbsp;Reservation Calendar
+                        </a>
+                        <a href="request.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Request Reservations
+                        </a>
+                        <a href="cancel.php" class="list-group-item active">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Cancel Reservations
+                        </a>
+                        <a href="my_history.php" class="list-group-item">
+                            <span class="glyphicon glyphicon-time"></span>&nbsp;Reservation History
+                        </a>
+                    </div>
+                    <div class="list-group">
+
+                        <?php if ($user_level >= 2) { ?>
+                            <a href="#" class="list-group-item">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Reservations for My Halls
+                            </a>
+                        <?php } ?>
+                        <?php if ($user_level >= 3) { ?>
+                            <a href="calendar.php" class="list-group-item">
+                                <span class="glyphicon glyphicon-edit"></span>&nbsp;Manage Reservations
+                            </a>
+                        <?php } ?>
+                        <?php if ($user_level >= 3) { ?>
+                            <a href="request.php" class="list-group-item">
+                                <span class="glyphicon glyphicon-time"></span>&nbsp;Hall Reservation History
+                            </a>
+                        <?php } ?>
+                        <?php if ($user_level >= 4) { ?>
+                            <a href="cancel.php" class="list-group-item">
+                                <span class="glyphicon glyphicon-star"></span>&nbsp;Administrator
+                            </a>
+                        <?php } ?>
+
+                    </div>                    
+                </div><!--/span-->
+            </div><!--/row-->
+
+        </div><!--/.container-->
+
+        <div style="min-height: 50px;">
+
+        </div>
+        <footer>
+            <?php include ROOT_DIR . 'footer.php'; ?>
+        </footer>
+        <?php include ROOT_DIR . 'scripts.inc.php'; ?>
+        <script src="js/er_cancel.js" type="text/javascript"></script>
+    </body>
+</html>

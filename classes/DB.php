@@ -94,4 +94,11 @@ class DB {
         }
     }
 
+    public function remove($table, $where) {
+        $sql = "DELETE FROM $table WHERE $where";
+        $result = $this->db->exec($sql);
+        
+        return $result;
+    }
+
 }
