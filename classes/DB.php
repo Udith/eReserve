@@ -7,10 +7,10 @@
  */
 class DB {
 
-    private $db_server = "localhost";
-    private $db_name = "reservationdb";
-    private $db_user = "root";
-    private $db_pass = "";
+    private $db_server = "mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/";
+    private $db_name = "ereserve";
+    private $db_user = "adminBTSkGJz";
+    private $db_pass = "_c-7MwSCtDmd";
     private $db;
 
     function __construct() {
